@@ -1,0 +1,78 @@
+body{
+	font-family:arial;
+	font-size:15px;
+	padding:20px;
+}
+.data{
+    border-collapse: collapse;	
+}
+.data td,th{
+	font-size:11px;
+	font-family: sans-serif;
+	border-spacing: 0;
+	border:1px solid;
+	padding:2px 5px;
+}
+.data tr:nth-child(even){background-color: #f2f2f2;}
+.data tr:hover {background-color: #ddd;}
+.data th {
+    /* text-align: center; */
+}
+
+
+
+.header{
+	font-family:arial;
+	font-size:12px;		
+	font-weight:bold;
+}
+.master_data{
+	font-weight:bold;
+	font-size:11px;
+}
+.data_title th{
+	font-size:11px;
+	/* border-top:1px solid; */
+}
+.total td{
+	font-weight:bold;
+	font-size:11px;		
+	/* // border-bottom:1px solid; */
+	/* border-top:1px solid; */
+}
+.data_tr td{
+	/* border-bottom:1px dotted; */
+	font-size:11px;
+} 
+
+.group td{
+	/* border-bottom:1px solid; */
+	font-size:15px;		
+	font-weight:bold;
+} 
+
+.group2 td{
+	/* border-bottom:1px solid; */
+	font-size:13px;		
+	font-weight:bold;
+} 
+
+.company_name{
+	font-size:25px;		
+}
+.company_table td{
+	text-align:left;
+	height:5px;
+	font-size:11px;		
+}
+
+.valuetotal{
+	font-weight:bold;
+	/* border-top:1px solid; */
+}
+.num {
+  mso-number-format:General;
+}
+.text{
+  mso-number-format:"\@";/*force text*/
+}

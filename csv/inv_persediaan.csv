@@ -1,0 +1,5 @@
+kode_barang,nama_part,id_merek,id_kelompok,satuan_besar,satuan_kecil,isi_satuan,keterangan,status,core,suggor,consignment,id_mata_uang,hrgjual_stn_bsr,hrgjual_stn_kcl,hpp_stn_bsr,hpp_stn_kcl,gl_persediaan,gl_penjualan,gl_hp_penjualan,gl_pot_penjualan,gl_retur_penjualan,satuan_bsr1,satuan_bsr2,satuan_bsr3,isi_satuan1,isi_satuan2,isi_satuan3,satuankonv1,satuankonv2,satuankonv3,is_pembulatan
+UP1-12,tes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+a001,Coba,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+a002,Import,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SN2-10,ok,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

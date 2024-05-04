@@ -1,0 +1,37 @@
+.mt-5 {
+    margin-top: 150px;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    padding: 25px 0;
+}
+
+.buttons-align {
+    display: flex;
+    margin: 0 auto;
+}
+
+.third {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.button {
+    border-radius: 7px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+.default {
+    color: white;
+    background: dodgerblue;
+    border: 1px solid #166cbf;
+}
+
+.default:hover {
+    background: #166bbd;
+    border: 1px solid #0e467c;
+}
+

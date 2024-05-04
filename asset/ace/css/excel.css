@@ -1,0 +1,7 @@
+
+.num {
+  mso-number-format:General;
+}
+.text{
+  mso-number-format:"\@";/*force text*/
+}
