@@ -25,7 +25,7 @@ if($results != ""){
 	}
 }
 
-// $digit_decimal = 2;
+$digit_decimal = 2;
 // $digit_decimal3 = 2;
 //if($is_pembulatan){
 	//$digit_decimal = 0;
