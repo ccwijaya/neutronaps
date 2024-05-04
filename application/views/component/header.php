@@ -489,7 +489,7 @@
 											<ul class="submenu">
 												<li class="<?php echo is_active($nowclass, "sales"); ?>"><a href="<?php echo base_url("sales"); ?>"><i class="menu-icon"></i>Sales</a><b class="arrow"></b></li>
 												<li class="<?php echo is_active($nowclass, "customer"); ?>"><a href="<?php echo base_url("customer"); ?>"><i class="menu-icon"></i>Customer</a><b class="arrow"></b></li>
-												<li class="<?php echo is_active($nowclass, "produk_jasa"); ?>"><a href="<?php echo base_url("produk_jasa"); ?>"><i class="menu-icon"></i>Product Services</a><b class="arrow"></b></li>
+												<li class="<?php echo is_active($nowclass, "produk_jasa"); ?>"><a href="<?php echo base_url("produk_jasa"); ?>"><i class="menu-icon"></i>Product Service</a><b class="arrow"></b></li>
 											</ul>	
 										
 										</li>
