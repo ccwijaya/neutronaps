@@ -30,7 +30,7 @@ if(!function_exists('hash_verified'))
 if (!function_exists('get_title_name')){
 	function get_title_name(){
 		// return "Monitoring KYG";
-		return "NMS-SMS";
+		return "NMS-FMS";
 	}
 }
 
