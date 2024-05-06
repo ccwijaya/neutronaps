@@ -3,7 +3,7 @@
 class Cabang extends CI_Controller {
 
 	private $class_name = "cabang";
-	private $form_title = "Master Cabang.";
+	private $form_title = "Master Cabang";
 	
 	function __construct()
 	{
