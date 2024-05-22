@@ -1,10 +1,21 @@
-﻿# Host: localhost  (Version 5.5.5-10.1.8-MariaDB)
-# Date: 2024-05-04 17:30:51
-# Generator: MySQL-Front 6.0  (Build 2.20)
+# SQL-Front 5.1  (Build 4.16)
 
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE */;
+/*!40101 SET SQL_MODE='NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES */;
+/*!40103 SET SQL_NOTES='ON' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS */;
+/*!40014 SET FOREIGN_KEY_CHECKS=0 */;
+
+
+# Host: localhost    Database: nma
+# ------------------------------------------------------
+# Server version 5.5.5-10.4.28-MariaDB
 
 #
-# Structure for table "cabang"
+# Source for table cabang
 #
 
 DROP TABLE IF EXISTS `cabang`;
@@ -13,20 +24,25 @@ CREATE TABLE `cabang` (
   `kode` varchar(255) DEFAULT NULL,
   `nama_cabang` varchar(255) DEFAULT NULL,
   `keterangan` varchar(255) DEFAULT NULL,
-  `create_user` int(11) DEFAULT '0',
+  `create_user` int(11) DEFAULT 0,
   `create_time` datetime DEFAULT NULL,
-  `update_user` int(11) DEFAULT '0',
+  `update_user` int(11) DEFAULT 0,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 #
-# Data for table "cabang"
+# Dumping data for table cabang
 #
 
+LOCK TABLES `cabang` WRITE;
+/*!40000 ALTER TABLE `cabang` DISABLE KEYS */;
+INSERT INTO `cabang` VALUES (1,'C001`','JAKARTA','Head Office',1,'2024-05-22 14:50:29',0,NULL);
+/*!40000 ALTER TABLE `cabang` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "commodity"
+# Source for table commodity
 #
 
 DROP TABLE IF EXISTS `commodity`;
@@ -40,16 +56,20 @@ CREATE TABLE `commodity` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 #
-# Data for table "commodity"
+# Dumping data for table commodity
 #
 
+LOCK TABLES `commodity` WRITE;
+/*!40000 ALTER TABLE `commodity` DISABLE KEYS */;
 INSERT INTO `commodity` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `commodity` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "counter"
+# Source for table counter
 #
 
 DROP TABLE IF EXISTS `counter`;
@@ -62,15 +82,19 @@ CREATE TABLE `counter` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT;
 
 #
-# Data for table "counter"
+# Dumping data for table counter
 #
 
+LOCK TABLES `counter` WRITE;
+/*!40000 ALTER TABLE `counter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `counter` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "criticsuggestion"
+# Source for table criticsuggestion
 #
 
 DROP TABLE IF EXISTS `criticsuggestion`;
@@ -83,24 +107,28 @@ CREATE TABLE `criticsuggestion` (
   `requested_by` varchar(255) DEFAULT NULL,
   `requested_position` varchar(255) DEFAULT NULL,
   `module_development` varchar(255) DEFAULT NULL,
-  `note_request` text,
-  `reason_request` text,
-  `reason_plus` text,
-  `status` int(11) DEFAULT '0',
+  `note_request` text DEFAULT NULL,
+  `reason_request` text DEFAULT NULL,
+  `reason_plus` text DEFAULT NULL,
+  `status` int(11) DEFAULT 0,
   `create_user` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 #
-# Data for table "criticsuggestion"
+# Dumping data for table criticsuggestion
 #
 
+LOCK TABLES `criticsuggestion` WRITE;
+/*!40000 ALTER TABLE `criticsuggestion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `criticsuggestion` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "customer"
+# Source for table customer
 #
 
 DROP TABLE IF EXISTS `customer`;
@@ -132,15 +160,20 @@ CREATE TABLE `customer` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 #
-# Data for table "customer"
+# Dumping data for table customer
 #
 
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (1,1,1,'2','K001','EXT','PT. PAUL BUANA INDONESIA','PERGUDANGAN TAMAN TEKNO BSD','TANGERANG SELATAN','BSD','BSD','10000','SITI','EKSPOR','02155002000',NULL,'089992828289',NULL,NULL,NULL,NULL,NULL,1,'2024-05-22 14:56:14',NULL,NULL);
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "gudang"
+# Source for table gudang
 #
 
 DROP TABLE IF EXISTS `gudang`;
@@ -149,21 +182,56 @@ CREATE TABLE `gudang` (
   `kode` varchar(255) DEFAULT NULL,
   `nama_gudang` varchar(255) DEFAULT NULL,
   `keterangan` varchar(255) DEFAULT NULL,
-  `create_user` int(11) DEFAULT '0',
+  `create_user` int(11) DEFAULT 0,
   `create_time` datetime DEFAULT NULL,
-  `update_user` int(11) DEFAULT '0',
+  `update_user` int(11) DEFAULT 0,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=COMPACT;
 
 #
-# Data for table "gudang"
+# Dumping data for table gudang
 #
 
-INSERT INTO `gudang` VALUES (1,'GAS','GUDANG AGUS SALIM','GUDANG PUSAT AGUS SALIM',0,NULL,2,'2023-05-27 04:42:06'),(2,'GNP','GUDANG GUNUNG PUTRI','GUDANG CABANG GUNUNG PUTRI',0,NULL,2,'2023-05-27 04:42:17'),(3,'GSJ','GUDANG SIDOARJO','GUDANG CABANG SIDOARJO',0,NULL,2,'2023-05-27 04:42:38'),(4,'GPW','GUDANG PURWAKARTA','GUDANG CABANG PURWAKARTA',0,NULL,2,'2023-05-27 04:42:28');
+LOCK TABLES `gudang` WRITE;
+/*!40000 ALTER TABLE `gudang` DISABLE KEYS */;
+INSERT INTO `gudang` VALUES (1,'GAS','GUDANG AGUS SALIM','GUDANG PUSAT AGUS SALIM',0,NULL,2,'2023-05-27 04:42:06');
+INSERT INTO `gudang` VALUES (2,'GNP','GUDANG GUNUNG PUTRI','GUDANG CABANG GUNUNG PUTRI',0,NULL,2,'2023-05-27 04:42:17');
+INSERT INTO `gudang` VALUES (3,'GSJ','GUDANG SIDOARJO','GUDANG CABANG SIDOARJO',0,NULL,2,'2023-05-27 04:42:38');
+INSERT INTO `gudang` VALUES (4,'GPW','GUDANG PURWAKARTA','GUDANG CABANG PURWAKARTA',0,NULL,2,'2023-05-27 04:42:28');
+/*!40000 ALTER TABLE `gudang` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "sales"
+# Source for table produk_jasa
+#
+
+DROP TABLE IF EXISTS `produk_jasa`;
+CREATE TABLE `produk_jasa` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `kode_produk` varchar(5) CHARACTER SET armscii8 COLLATE armscii8_general_ci DEFAULT NULL,
+  `nama_produk` varchar(100) CHARACTER SET armscii8 COLLATE armscii8_general_ci DEFAULT NULL,
+  `deskripsi` longtext CHARACTER SET armscii8 COLLATE armscii8_general_ci DEFAULT NULL,
+  `create_user` int(11) DEFAULT 0,
+  `create_time` datetime DEFAULT NULL,
+  `update_user` int(11) DEFAULT 0,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+#
+# Dumping data for table produk_jasa
+#
+
+LOCK TABLES `produk_jasa` WRITE;
+/*!40000 ALTER TABLE `produk_jasa` DISABLE KEYS */;
+INSERT INTO `produk_jasa` VALUES (1,'FM001','FUMIGASI METHYL','Fumigasi Menggunakan Methyl Bromide (Ch3Br)',1,'2024-05-22 16:42:25',0,NULL);
+INSERT INTO `produk_jasa` VALUES (2,'FM002','FUMIGASI PHOSPHINE','Ffumigasi Menggunakan Tablet Phosphine (Ph3)',1,'2024-05-22 16:43:22',0,NULL);
+/*!40000 ALTER TABLE `produk_jasa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
+# Source for table sales
 #
 
 DROP TABLE IF EXISTS `sales`;
@@ -181,15 +249,20 @@ CREATE TABLE `sales` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 #
-# Data for table "sales"
+# Dumping data for table sales
 #
 
+LOCK TABLES `sales` WRITE;
+/*!40000 ALTER TABLE `sales` DISABLE KEYS */;
+INSERT INTO `sales` VALUES (1,1,'S001','Santoso',NULL,NULL,NULL,'Sales Jakarta',1,'2024-05-22 14:52:55',NULL,NULL);
+/*!40000 ALTER TABLE `sales` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "setting_email"
+# Source for table setting_email
 #
 
 DROP TABLE IF EXISTS `setting_email`;
@@ -197,31 +270,35 @@ CREATE TABLE `setting_email` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(200) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL,
-  `active` int(11) DEFAULT '1',
+  `active` int(11) DEFAULT 1,
   `create_user` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 #
-# Data for table "setting_email"
+# Dumping data for table setting_email
 #
 
+LOCK TABLES `setting_email` WRITE;
+/*!40000 ALTER TABLE `setting_email` DISABLE KEYS */;
+/*!40000 ALTER TABLE `setting_email` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "sls_quotation"
+# Source for table sls_quotation
 #
 
 DROP TABLE IF EXISTS `sls_quotation`;
 CREATE TABLE `sls_quotation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_paf` int(11) DEFAULT NULL,
-  `is_pre_project` int(11) DEFAULT '0',
+  `is_pre_project` int(11) DEFAULT 0,
   `id_pre_quote` int(11) DEFAULT NULL,
-  `is_distribution` int(11) DEFAULT '0',
-  `is_contract` int(11) NOT NULL DEFAULT '0',
+  `is_distribution` int(11) DEFAULT 0,
+  `is_contract` int(11) NOT NULL DEFAULT 0,
   `tc_moda` int(11) DEFAULT NULL,
   `id_sales` varchar(255) DEFAULT NULL,
   `id_cabang` int(11) DEFAULT NULL,
@@ -247,15 +324,19 @@ CREATE TABLE `sls_quotation` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=COMPACT;
 
 #
-# Data for table "sls_quotation"
+# Dumping data for table sls_quotation
 #
 
+LOCK TABLES `sls_quotation` WRITE;
+/*!40000 ALTER TABLE `sls_quotation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sls_quotation` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "sls_quotation_detail"
+# Source for table sls_quotation_detail
 #
 
 DROP TABLE IF EXISTS `sls_quotation_detail`;
@@ -282,15 +363,19 @@ CREATE TABLE `sls_quotation_detail` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=COMPACT;
 
 #
-# Data for table "sls_quotation_detail"
+# Dumping data for table sls_quotation_detail
 #
 
+LOCK TABLES `sls_quotation_detail` WRITE;
+/*!40000 ALTER TABLE `sls_quotation_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sls_quotation_detail` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "status_verif"
+# Source for table status_verif
 #
 
 DROP TABLE IF EXISTS `status_verif`;
@@ -303,16 +388,22 @@ CREATE TABLE `status_verif` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 #
-# Data for table "status_verif"
+# Dumping data for table status_verif
 #
 
-INSERT INTO `status_verif` VALUES (1,'Approved',NULL,NULL,NULL,NULL,NULL),(2,'Negotiable',NULL,NULL,NULL,NULL,NULL),(3,'Disapprove',NULL,NULL,NULL,NULL,NULL);
+LOCK TABLES `status_verif` WRITE;
+/*!40000 ALTER TABLE `status_verif` DISABLE KEYS */;
+INSERT INTO `status_verif` VALUES (1,'Approved',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `status_verif` VALUES (2,'Negotiable',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `status_verif` VALUES (3,'Disapprove',NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `status_verif` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "web_access"
+# Source for table web_access
 #
 
 DROP TABLE IF EXISTS `web_access`;
@@ -330,16 +421,20 @@ CREATE TABLE `web_access` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=COMPACT;
 
 #
-# Data for table "web_access"
+# Dumping data for table web_access
 #
 
+LOCK TABLES `web_access` WRITE;
+/*!40000 ALTER TABLE `web_access` DISABLE KEYS */;
 INSERT INTO `web_access` VALUES (1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `web_access` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "web_log"
+# Source for table web_log
 #
 
 DROP TABLE IF EXISTS `web_log`;
@@ -351,16 +446,24 @@ CREATE TABLE `web_log` (
   `ip` varchar(100) DEFAULT '',
   `timing` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=COMPACT;
 
 #
-# Data for table "web_log"
+# Dumping data for table web_log
 #
 
-INSERT INTO `web_log` VALUES (1,'admin','admin123',1,'','2024-04-30 11:28:39'),(2,'admin','admin123',1,'','2024-04-30 11:32:27'),(3,'admin','admin140313',0,'','2024-05-04 12:17:36'),(4,'admin','admin123',1,'','2024-05-04 12:17:39');
+LOCK TABLES `web_log` WRITE;
+/*!40000 ALTER TABLE `web_log` DISABLE KEYS */;
+INSERT INTO `web_log` VALUES (1,'admin','admin123',1,'','2024-04-30 11:28:39');
+INSERT INTO `web_log` VALUES (2,'admin','admin123',1,'','2024-04-30 11:32:27');
+INSERT INTO `web_log` VALUES (3,'admin','admin140313',0,'','2024-05-04 12:17:36');
+INSERT INTO `web_log` VALUES (4,'admin','admin123',1,'','2024-05-04 12:17:39');
+INSERT INTO `web_log` VALUES (5,'admin','admin123',1,'','2024-05-22 14:49:36');
+/*!40000 ALTER TABLE `web_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "web_user"
+# Source for table web_user
 #
 
 DROP TABLE IF EXISTS `web_user`;
@@ -373,13 +476,13 @@ CREATE TABLE `web_user` (
   `level_jabatan` int(11) DEFAULT NULL,
   `jabatan` varchar(255) DEFAULT NULL,
   `level_izin` int(11) DEFAULT NULL,
-  `id_pengajuan` int(11) DEFAULT '0',
+  `id_pengajuan` int(11) DEFAULT 0,
   `nama_user` varchar(100) DEFAULT '',
   `passwd` varchar(100) DEFAULT '',
   `no_hp` varchar(100) DEFAULT '',
   `email` varchar(100) DEFAULT '',
   `pass_email` varchar(255) DEFAULT NULL,
-  `id_cabang` int(11) DEFAULT '0',
+  `id_cabang` int(11) DEFAULT 0,
   `id_gudang` int(11) DEFAULT NULL,
   `warehouse` int(11) DEFAULT NULL,
   `trucking` int(11) DEFAULT NULL,
@@ -403,7 +506,7 @@ CREATE TABLE `web_user` (
   `dash_home` int(11) DEFAULT NULL,
   `verify` int(11) DEFAULT NULL,
   `approval` int(11) DEFAULT NULL,
-  `is_active` int(11) DEFAULT '1',
+  `is_active` int(11) DEFAULT 1,
   `is_cat_customer` int(11) DEFAULT NULL,
   `akses_harga_jual` int(11) DEFAULT NULL,
   `akses_input_harga` int(11) DEFAULT NULL,
@@ -411,25 +514,29 @@ CREATE TABLE `web_user` (
   `ttd` varchar(255) DEFAULT NULL,
   `ttd_pengajuan` varchar(255) DEFAULT NULL,
   `ttd_pengajuan_check` varchar(255) DEFAULT NULL,
-  `edit_akses` int(2) DEFAULT '0',
-  `delete_akses` int(11) DEFAULT '0',
+  `edit_akses` int(2) DEFAULT 0,
+  `delete_akses` int(11) DEFAULT 0,
   `last_login` datetime DEFAULT NULL,
-  `create_user` int(11) DEFAULT '0',
+  `create_user` int(11) DEFAULT 0,
   `keterangan` varchar(255) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_user` int(11) DEFAULT '0',
+  `update_user` int(11) DEFAULT 0,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=COMPACT;
 
 #
-# Data for table "web_user"
+# Dumping data for table web_user
 #
 
-INSERT INTO `web_user` VALUES (1,'admin',NULL,NULL,2,4,'Logistic Analyst Spv',NULL,0,'Admin','0192023a7bbd73250516f069df18b500','081298868898','admin@gmail.com',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,1,NULL,1,1,3,NULL,NULL,'avatar2.png','ttd.jpeg',NULL,NULL,0,1,'2024-05-04 12:17:39',1,NULL,'2022-12-19 02:14:00',1,'2024-05-04 12:17:39');
+LOCK TABLES `web_user` WRITE;
+/*!40000 ALTER TABLE `web_user` DISABLE KEYS */;
+INSERT INTO `web_user` VALUES (1,'admin',NULL,NULL,2,4,'Logistic Analyst Spv',NULL,0,'Admin','0192023a7bbd73250516f069df18b500','081298868898','admin@gmail.com',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,1,NULL,1,1,3,NULL,NULL,'avatar2.png','ttd.jpeg',NULL,NULL,0,1,'2024-05-22 14:49:36',1,NULL,'2022-12-19 02:14:00',1,'2024-05-22 14:49:36');
+/*!40000 ALTER TABLE `web_user` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "web_user_level"
+# Source for table web_user_level
 #
 
 DROP TABLE IF EXISTS `web_user_level`;
@@ -441,16 +548,21 @@ CREATE TABLE `web_user_level` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 #
-# Data for table "web_user_level"
+# Dumping data for table web_user_level
 #
 
-INSERT INTO `web_user_level` VALUES (1,'Terbatas',NULL,NULL,NULL,NULL),(2,'Menyeluruh',NULL,NULL,NULL,NULL);
+LOCK TABLES `web_user_level` WRITE;
+/*!40000 ALTER TABLE `web_user_level` DISABLE KEYS */;
+INSERT INTO `web_user_level` VALUES (1,'Terbatas',NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_level` VALUES (2,'Menyeluruh',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `web_user_level` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "web_user_menu"
+# Source for table web_user_menu
 #
 
 DROP TABLE IF EXISTS `web_user_menu`;
@@ -465,16 +577,32 @@ CREATE TABLE `web_user_menu` (
   PRIMARY KEY (`id`),
   KEY `idx1` (`id_user`),
   KEY `idx2` (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=4615 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4615 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 #
-# Data for table "web_user_menu"
+# Dumping data for table web_user_menu
 #
 
-INSERT INTO `web_user_menu` VALUES (4603,1,8,1,'2024-04-30 11:11:21',NULL,NULL),(4604,1,7,1,'2024-04-30 11:11:21',NULL,NULL),(4605,1,12,1,'2024-04-30 11:11:21',NULL,NULL),(4606,1,10,1,'2024-04-30 11:11:21',NULL,NULL),(4607,1,11,1,'2024-04-30 11:11:21',NULL,NULL),(4608,1,5,1,'2024-04-30 11:11:21',NULL,NULL),(4609,1,6,1,'2024-04-30 11:11:21',NULL,NULL),(4610,1,3,1,'2024-04-30 11:11:21',NULL,NULL),(4611,1,4,1,'2024-04-30 11:11:21',NULL,NULL),(4612,1,2,1,'2024-04-30 11:11:21',NULL,NULL),(4613,1,9,1,'2024-04-30 11:11:21',NULL,NULL),(4614,1,1,1,'2024-04-30 11:11:21',NULL,NULL);
+LOCK TABLES `web_user_menu` WRITE;
+/*!40000 ALTER TABLE `web_user_menu` DISABLE KEYS */;
+INSERT INTO `web_user_menu` VALUES (4603,1,8,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4604,1,7,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4605,1,12,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4606,1,10,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4607,1,11,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4608,1,5,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4609,1,6,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4610,1,3,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4611,1,4,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4612,1,2,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4613,1,9,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4614,1,1,1,'2024-04-30 11:11:21',NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4615,1,13,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `web_user_menu` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# Structure for table "web_user_menu_list"
+# Source for table web_user_menu_list
 #
 
 DROP TABLE IF EXISTS `web_user_menu_list`;
@@ -489,80 +617,38 @@ CREATE TABLE `web_user_menu_list` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 #
-# Data for table "web_user_menu_list"
+# Dumping data for table web_user_menu_list
 #
 
-INSERT INTO `web_user_menu_list` VALUES (1,'user','Setting','User Setup',NULL,NULL,NULL,NULL,NULL),(2,'profil','Setting','Profile',NULL,NULL,NULL,NULL,NULL),(3,'cabang','Setting','Master Cabang',NULL,NULL,NULL,NULL,NULL),(4,'sales','Setting','Master Sales',NULL,NULL,NULL,NULL,NULL),(5,'customer','Sales','Master Customer Trucking',NULL,NULL,NULL,NULL,NULL),(6,'sls_quotation','Sales','Quotation',NULL,NULL,NULL,NULL,NULL),(7,'gnr_timeline','All Dept','Timeline Progress',NULL,NULL,NULL,NULL,NULL),(8,'gnr_timeline','All Dept','Time Line',NULL,NULL,NULL,NULL,NULL),(9,'gnr_timeline_received','Setting','Time Line Receiving',NULL,NULL,NULL,NULL,NULL),(10,'gnr_timeline_Approval','Approval','Time Line Approval',NULL,NULL,NULL,NULL,NULL),(11,'sls_contract','Sales','Contract',NULL,NULL,NULL,NULL,NULL),(12,'sls_quotation_unlock','Approval','Quotation Unlock',NULL,NULL,NULL,NULL,NULL);
+LOCK TABLES `web_user_menu_list` WRITE;
+/*!40000 ALTER TABLE `web_user_menu_list` DISABLE KEYS */;
+INSERT INTO `web_user_menu_list` VALUES (1,'user','Setting','User Setup',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (2,'profil','Setting','Profile',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (3,'cabang','Setting','Master Cabang',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (4,'sales','Setting','Master Sales',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (5,'customer','Sales','Master Customer Trucking',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (6,'sls_quotation','Sales','Quotation',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (7,'gnr_timeline','All Dept','Timeline Progress',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (8,'gnr_timeline','All Dept','Time Line',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (9,'gnr_timeline_received','Setting','Time Line Receiving',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (10,'gnr_timeline_Approval','Approval','Time Line Approval',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (11,'sls_contract','Sales','Contract',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (12,'sls_quotation_unlock','Approval','Quotation Unlock',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (13,'produk_jasa','Admin','Produk Jasa',NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `web_user_menu_list` ENABLE KEYS */;
+UNLOCK TABLES;
 
 #
-# View "view_contract"
+# Source for view view_customer
 #
 
-DROP VIEW IF EXISTS `view_contract`;
-CREATE
-  ALGORITHM = UNDEFINED
-  VIEW `view_contract`
-  AS
-SELECT
-  `a`.`id`,
-  `a`.`no_contract`,
-  `a`.`tanggal_contract`,
-  `b`.`id_rute`,
-  `c`.`rute`,
-  `d`.`unit` AS 'moda',
-  `c`.`tipe_box`,
-  `b`.`tarif_pbl`,
-  `b`.`tarif_nego`,
-  IF(`b`.`tarif_nego`, `b`.`tarif_nego`, `b`.`tarif_pbl`) AS 'tarif_contract'
-FROM
-  (((`sls_quotation` a
-    LEFT JOIN `sls_quotation_detail` b ON ((`a`.`id` = `b`.`id_quotation`)))
-    LEFT JOIN `view_rute` c ON ((`b`.`id_rute` = `c`.`id`)))
-    LEFT JOIN `moda` d ON ((`d`.`id` = `c`.`id_moda`)));
+DROP VIEW IF EXISTS `view_customer`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_customer` AS select `a`.`nama_customer` AS `nama_customer`,`b`.`nama_sales` AS `nama_sales` from (`customer` `a` join `sales` `b` on(`b`.`id` = `a`.`id_sales`));
 
-#
-# View "view_quotation"
-#
-
-DROP VIEW IF EXISTS `view_quotation`;
-CREATE
-  ALGORITHM = UNDEFINED
-  VIEW `view_quotation`
-  AS
-SELECT
-  `a`.`id`,
-  `a`.`id_paf`,
-  `a`.`is_pre_project`,
-  `a`.`id_pre_quote`,
-  `a`.`is_distribution`,
-  `a`.`is_contract`,
-  `a`.`tc_moda`,
-  `a`.`id_sales`,
-  `a`.`id_cabang`,
-  `a`.`no_bukti`,
-  `a`.`no_contract`,
-  `a`.`cvp`,
-  `a`.`tanggal`,
-  `a`.`tanggal_contract`,
-  `a`.`id_customer`,
-  `a`.`keterangan`,
-  `a`.`status_proses_q`,
-  `a`.`status_approve_q`,
-  `a`.`waktu_approved_q`,
-  `a`.`nama_approved_q`,
-  `a`.`ttd_approved_q`,
-  `a`.`attach_quote_app`,
-  `a`.`attach_quote_old`,
-  `a`.`is_nego`,
-  `a`.`is_deal`,
-  `a`.`is_reject`,
-  `a`.`create_user`,
-  `a`.`create_time`,
-  `a`.`update_user`,
-  `a`.`update_time`,
-  (TO_DAYS(CURDATE()) - TO_DAYS(`a`.`create_time`)) AS 'selisih'
-FROM
-  `sls_quotation` a;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
