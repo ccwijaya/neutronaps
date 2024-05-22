@@ -9,47 +9,19 @@ $nowclass = $this->uri->segment('1');
 
 
 $id = "";
-$id_sales = "";
-$id_cabang = "";
-$kode = "";
-$kategori_cust = "";
-$nama_customer = "";
-$alamat = "";
-$pic = "";
-$jabatan = "";
-$kota = "";
-$kecamatan = "";
-$kelurahan = "";
-$kode_pos = "";
-$contact1 = "";
-$email1 = "";
-$contact2 = "";
-$email2 = "";
-$website = "";
-$keterangan = "";
+$kode_produk = "";
+$nama_produk = "";
+$deskripsi = "";
+
 
 
 if($results != ""){							
 	foreach($results as $result){
 		$id = $result["id"];
-		$id_sales = $result["id_sales"];
-		$id_cabang = $result["id_cabang"];
-		$kode = $result["kode"];
-		$kategori_cust =  $result["kategori_cust"];
-		$nama_customer = $result["nama_customer"];
-		$alamat = $result["alamat"];
-		$pic = $result["pic"];
-		$jabatan = $result["jabatan"];
-		$kota = $result["kota"];
-		$kecamatan = $result["kecamatan"];
-		$kelurahan = $result["kelurahan"];
-		$kode_pos = $result["kode_pos"];
-		$contact1 = $result["contact1"];
-		$email1 = $result["email1"];
-		$contact2 = $result["contact2"];
-		$email2 = $result["email2"];
-		$website = $result["website"];
-		$keterangan = $result["keterangan"];
+		$kode_produk = $result["kode_produk"];
+		$nama_produk = $result["nama_produk"];
+		$deskripsi = $result["deskripsi"];
+		
 	}
 }
 
@@ -133,357 +105,37 @@ if($results != ""){
 									
 									
 												echo'<div class="row">';
+
 												echo'<div class="col-xs-12 col-sm-2">';
-												echo '<label>Kode</label>';
-												$param["name"] = "kode";
+												echo '<label>Kode Produk/Jasa</label>';
+												$param["name"] = "kode_produk";
 												//$param["class_column"] = "col-lg-5";
 												$param["required"] = "Y";
-												$param["value"] = $kode;
+												$param["value"] = $kode_produk;
 												echo textbox2($param);
 												unset($param);
 												echo '</div>';
 												
 
 												echo'<div class="col-xs-12 col-sm-4">';
-												echo '<label>Nama Customer</label>';
-												$param["name"] = "nama_customer";
+												echo '<label>Nama Produk/Jasa</label>';
+												$param["name"] = "nama_produk";
 												//$param["class_column"] = "col-lg-5";
 												$param["required"] = "Y";
-												$param["value"] = $nama_customer;
+												$param["value"] = $nama_produk;
 												echo textbox2($param);
 												unset($param);
 												echo '</div>';
 
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>Kategori Customer</label>';
-												$param["name"] = "kategori_cust";
-												//$param["class_column"] = "col-lg-5";
-												$param["placeholder"] = "--Pilih Kategori--";
-												$param["required"] = "Y";
-												$param["value"] = $kategori_cust;
-												$options[""] = "--Pilih Kategori Customer--";
-												$options["INT"] = "INTERNAL";
-												$options["EXT"] = "EXTERNAL";
-												
-												$param["options"] = $options;
-												echo combobox($param);
-												unset($options);
-												echo '</div>';
-												echo '</div>';
-
-												echo'<div class="row">';
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>Sales</label>';
-												$param["name"] = "id_sales";
-												//$param["class_column"] = "col-lg-5";
-												$param["placeholder"] = "--Pilih Sales--";
-												$param["required"] = "Y";
-												$param["value"] = $id_sales;
-												$options["0"] = "--Pilih Sales--";
-												foreach ($rs_sales as $data) {
-													$options[$data["id"]] = $data["nama_sales"];
-												}
-												$param["options"] = $options;
-												echo combobox($param);
-												unset($options);
-												echo '</div>';
-
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>Cabang</label>';
-												$param["name"] = "id_cabang";
-												//$param["class_column"] = "col-lg-5";
-												$param["placeholder"] = "--Pilih Cabang--";
-												$param["required"] = "Y";
-												$param["value"] = $id_cabang;
-												$options["0"] = "--Pilih Cabang--";
-												foreach ($rs_cabang as $data) {
-													$options[$data["id"]] = $data["nama_cabang"];
-												}
-												$param["options"] = $options;
-												echo combobox($param);
-												unset($options);
-												echo '</div>';
-												echo '</div>';
-
-												echo'<div class="row">';
-												echo'<div class="col-xs-12 col-sm-6">';
-												echo '<label>Alamat</label>';
-												$param["name"] = "alamat";
+												echo'<div class="col-xs-12 col-sm-4">';
+												echo '<label>Deskripsi Produk/Jasa</label>';
+												$param["name"] = "deskripsi";
 												//$param["class_column"] = "col-lg-5";
 												$param["required"] = "Y";
-												$param["value"] = $alamat;
-												echo textarea($param);
-												unset($param);
-												echo '</div>';
-												echo '</div>';
-
-												echo'<div class="row">';
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>Kota</label>';
-												$param["name"] = "kota";
-												//$param["class_column"] = "col-lg-5";
-												$param["required"] = "Y";
-												$param["value"] = $kota;
+												$param["value"] = $deskripsi;
 												echo textbox2($param);
 												unset($param);
 												echo '</div>';
-
-												//cho'<div class="row">';
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>Kecamatan</label>';
-												$param["name"] = "kecamatan";
-												//$param["class_column"] = "col-lg-5";
-												$param["required"] = "Y";
-												$param["value"] = $kecamatan;
-												echo textbox2($param);
-												unset($param);
-												echo '</div>';
-												echo '</div>';
-
-												echo'<div class="row">';
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>Kelurahan</label>';
-												$param["name"] = "kelurahan";
-												//$param["class_column"] = "col-lg-5";
-												$param["required"] = "Y";
-												$param["value"] = $kelurahan;
-												echo textbox2($param);
-												unset($param);
-												echo '</div>';
-
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>Kode Pos</label>';
-												$param["name"] = "kode_pos";
-												//$param["class_column"] = "col-lg-5";
-												$param["required"] = "Y";
-												$param["value"] = $kode_pos;
-												echo textbox2($param);
-												unset($param);
-												echo '</div>';
-												echo '</div>';
-
-												echo'<div class="row">';
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>PIC</label>';
-												$param["name"] = "pic";
-												//$param["class_column"] = "col-lg-5";
-												$param["required"] = "Y";
-												$param["value"] = $pic;
-												echo textbox2($param);
-												unset($param);
-												echo '</div>';
-
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>Jabatan</label>';
-												$param["name"] = "jabatan";
-												//$param["class_column"] = "col-lg-5";
-												$param["required"] = "Y";
-												$param["value"] = $jabatan;
-												echo textbox2($param);
-												unset($param);
-												echo '</div>';
-												echo '</div>';
-
-												echo'<div class="row">';
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>No Telp</label>';
-												$param["name"] = "contact1";
-												//$param["class_column"] = "col-lg-5";
-												$param["required"] = "Y";
-												$param["value"] = $contact1;
-												echo textbox2($param);
-												unset($param);
-												echo '</div>';
-
-												echo'<div class="col-xs-12 col-sm-3">';
-												echo '<label>No HP</label>';
-												$param["name"] = "contact2";
-												//$param["class_column"] = "col-lg-5";
-												$param["required"] = "Y";
-												$param["value"] = $contact2;
-												echo textbox2($param);
-												unset($param);
-												echo '</div>';
-												echo '</div>';
-
-												
-
-												echo'<div class="row">';
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Waktu Tempuh</label>';
-												// $param["name"] = "waktu_tempuh";
-												// //$param["class_column"] = "col-lg-5";
-												// $param["required"] = "Y";
-												// $param["value"] = format_number($waktu_tempuh);
-												// echo numericbox($param);
-												// unset($param);
-												// echo '</div>';
-
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Waktu Operasional</label>';
-												// $param["name"] = "waktu_ops";
-												// //$param["class_column"] = "col-lg-5";
-												// $param["required"] = "Y";
-												// $param["value"] = format_number($waktu_ops);
-												// echo numericbox($param);
-												// unset($param);
-												// echo '</div>';
-
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Total Waktu</label>';
-												// $param["name"] = "total_waktu";
-												// //$param["class_column"] = "col-lg-5";
-												// $param["required"] = "Y";
-												// $param["value"] = format_number($total_waktu);
-												// echo numericbox($param);
-												// unset($param);
-												// echo '</div>';
-
-												// echo '</br>';
-
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Wkt Tempuh (Hari)</label>';
-												// //echo'<div class="col-lg-12">';
-												// echo'<input type="text" style="text-align:right;" step="any" class="form-control numericbox" id="txt4" name="waktu_tempuh" value="' . format_number($waktu_tempuh) . '" onkeyup="sum();"">';
-												// echo'</div>';
-
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Waktu Ops (Hari)</label>';
-												// //echo'<div class="col-lg-12">';
-												// echo'<input type="text" style="text-align:right;" step="any" class="form-control numericbox" id="txt5" name="waktu_ops" value="' . format_number($waktu_ops) . '" onkeyup="sum();"">';
-												// echo'</div>';
-
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Total Hari</label>';
-												// //echo'<div class="col-lg-12">';
-												// echo'<input type="text" style="text-align:right;" step="any" class="form-control numericbox" id="txt6" name="total_waktu" value="' . format_number($total_waktu) . '" >';
-												// echo'</div>';
-												// echo '</div>';
-
-												// echo '</br>';
-
-												echo'<div class="row">';
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Total Biaya Tol</label>';
-												// $param["name"] = "total_tol";
-												// //$param["class_column"] = "col-lg-5";
-												// $param["required"] = "Y";
-												// $param["value"] = format_number($total_tol);
-												// echo numericbox($param);
-												// unset($param);
-												// echo '</div>';
-
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Biaya Kapal / Very</label>';
-												// $param["name"] = "biaya_kapal";
-												// //$param["class_column"] = "col-lg-5";
-												// $param["required"] = "";
-												// $param["value"] = format_number($biaya_kapal);
-												// echo numericbox($param);
-												// unset($param);
-												// echo '</div>';
-												echo '</div>';
-												
-												
-											
-
-												echo'<div class="row">';
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Merek</label>';
-												// $param["name"] = "id_merek";
-												// //$param["class_column"] = "col-lg-5";
-												// $param["placeholder"] = "Pilih Merek";
-												// $param["required"] = "Y";
-												// $param["value"] = $id_merek;
-												// $options["0"] = "-----";
-												// foreach ($rs_merek as $data) {
-												// 	$options[$data["id"]] = $data["kode"] . " - " . $data["nama_merek"];
-												// }
-												// $param["options"] = $options;
-												// echo combobox($param);
-												// unset($options);
-												// echo '</div>';
-
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Kategori</label>';
-												// $param["name"] = "id_kat_aset";
-												// //$param["class_column"] = "col-lg-5";
-												// $param["placeholder"] = "Pilih Klompok";
-												// $param["required"] = "Y";
-												// $param["value"] = $id_kat_aset;
-												// $options["0"] = "-----";
-												// foreach ($rs_kat_asset as $data) {
-												// 	$options[$data["id"]] = $data["kode"] . " - " . $data["nama_kategori"];
-												// }
-												// $param["options"] = $options;
-												// echo combobox($param);
-												// unset($options);
-												// echo '</div>';
-
-												// echo'<div class="col-xs-12 col-sm-2">';
-												// echo '<label>Satuan</label>';
-												// $param["name"] = "id_satuan";
-												// //$param["class_column"] = "col-lg-4";
-												// $param["required"] = "Y";
-												// $param["value"] = $id_satuan;
-												// $options["0"] = "-----";
-												// foreach ($rs_satuan as $data) {
-												// 	$options[$data["id"]] = $data["nama_satuan"];
-												// }
-												// $param["options"] = $options;
-												// echo combobox($param);
-												// unset($options);
-												// echo '</div>';
-												echo '</div>';
-
-												echo '<div class="row">';
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Color</label>';
-												// $param["name"] = "warna";
-												// //$param["class_column"] = "col-lg-5";
-												// $param["required"] = "Y";
-												// $param["value"] = $warna;
-												// echo textbox2($param);
-												// unset($param);
-												// echo '</div>';
-
-												// echo'<div class="col-xs-12 col-sm-3">';
-												// echo '<label>Size</label>';
-												// $param["name"] = "ukuran";
-												// //$param["class_column"] = "col-lg-5";
-												// $param["required"] = "Y";
-												// $param["value"] = $ukuran;
-												// echo textbox2($param);
-												// unset($param);
-												// echo '</div>';
-
-												// echo'<div class="col-xs-12 col-sm-2">';
-												// echo '<label>Status</label>';
-												// $param["name"] = "is_active";
-												// //$param["class_column"] = "col-lg-12";
-												// $param["placeholder"] = "Pilih Status";
-												// $param["required"] = "Y";
-												// $param["value"] = $is_active;
-												// $options["0"] = "TIDAK AKTIF";
-												// $options["1"] = "AKTIF";
-												// $param["options"] = $options;
-												// echo combobox($param);
-												// unset($options);
-												// echo '</div>';
-												echo '</div>';
-												
-												
-
-												echo'<div class="row">';
-												// echo'<div class="col-xs-12 col-sm-8">';
-												// echo '<label>Description</label>';
-												// $param["name"] = "deskripsi";
-												// //$param["class_column"] = "col-lg-12";
-												// $param["required"] = "";
-												// $param["value"] = $deskripsi;
-												// echo textarea($param);
-												// unset($param);
-												// echo '</div>';
 												echo '</div>';
 																					
 												?>

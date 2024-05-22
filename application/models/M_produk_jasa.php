@@ -1,33 +1,33 @@
 <?php
 class M_produk_jasa extends CI_Model {
-	private $main_table = "customer";
+	private $main_table = "produk_jasa";
 	
 	public function get_data($id=""){
 		$session_data = $this->session->userdata('logged_in');		
-		$id_cabang = $session_data['id_cabang'];
-		$id_sales = $session_data['id_sales'];
-		$is_cat_customer = $session_data['is_cat_customer'];	
+		//$id_cabang = $session_data['id_cabang'];
+		//$id_sales = $session_data['id_sales'];
+		//$is_cat_customer = $session_data['is_cat_customer'];	
 
-		$this->db->select ( 'a.*,b.nama_sales,c.nama_cabang' );
+		$this->db->select ( 'a.*' );
 		$this->db->from($this->main_table . " a");
-		$this->db->join('sales b', 'a.id_sales = b.id', 'left');
-		$this->db->join('cabang c', 'a.id_cabang = c.id', 'left');
+		//$this->db->join('sales b', 'a.id_sales = b.id', 'left');
+		//$this->db->join('cabang c', 'a.id_cabang = c.id', 'left');
 		// $this->db->join('proyek z', 'z.id = b.id_proyek', 'left');		
 		if($id!=""){
 			$this->db->where("a.id", $id);
 		}
 
-		if($id_cabang!=0){
-			$this->db->where("a.id_cabang", $id_cabang);
-		}
+		// if($id_cabang!=0){
+		// 	$this->db->where("a.id_cabang", $id_cabang);
+		// }
 
-		if($is_cat_customer == 1){
-			$this->db->where("a.kategori_cust", "EXT");
-		}
+		// if($is_cat_customer == 1){
+		// 	$this->db->where("a.kategori_cust", "EXT");
+		// }
 
-		if($is_cat_customer == 2){
-			$this->db->where("a.kategori_cust", "INT");
-		}
+		// if($is_cat_customer == 2){
+		// 	$this->db->where("a.kategori_cust", "INT");
+		// }
 
 		// $session_data = $this->session->userdata('logged_in');
 		if($session_data['id_level']<2){
@@ -46,35 +46,35 @@ class M_produk_jasa extends CI_Model {
 
 	}
 
-	public function get_sales(){
+	// public function get_sales(){
 
-		//$tahun = date("Y");
-		$this->db->select ( 'a.*' );
-		$this->db->from("sales a");
+	// 	//$tahun = date("Y");
+	// 	$this->db->select ( 'a.*' );
+	// 	$this->db->from("sales a");
 
-		//$this->db->where("a.periode", $tahun);
-		$query = $this->db->get();
-		//debug($this->db->last_query());
-		$result = $query->result_array();	
+	// 	//$this->db->where("a.periode", $tahun);
+	// 	$query = $this->db->get();
+	// 	//debug($this->db->last_query());
+	// 	$result = $query->result_array();	
 
-		return $result;
-	}
+	// 	return $result;
+	// }
 
-	public function get_cabang(){
+	// public function get_cabang(){
 		
-		$this->db->select ( 'a.*' );
-        $this->db->from("cabang a");
-		// if($id!=""){
-			// $this->db->where("a.id", $id);
-		// }
-		$this->db->order_by('a.nama_cabang', 'ASC');
-        $query = $this->db->get();
-        // debug($this->db->last_query());
-        $result = $query->result_array();	
+	// 	$this->db->select ( 'a.*' );
+    //     $this->db->from("cabang a");
+	// 	// if($id!=""){
+	// 		// $this->db->where("a.id", $id);
+	// 	// }
+	// 	$this->db->order_by('a.nama_cabang', 'ASC');
+    //     $query = $this->db->get();
+    //     // debug($this->db->last_query());
+    //     $result = $query->result_array();	
     
-        return $result;
+    //     return $result;
 		
-	}
+	// }
 
 	// public function get_notif_report($id=""){
 	// 	$session_data = $this->session->userdata('logged_in');		

@@ -99,15 +99,9 @@ $(document).ready(function() {
 												<thead>
 													<tr>
 														
-														<th width="300px">kode</th>
-														<th width="300px">Nama Customer</th>
-														<th width="300px">Alamat</th>
-														<th width="300px">Kelurahan</th>
-														<th width="300px">Kecamatan</th>
-														<!-- <th width="300px">Kode Pos</th> -->
-														<th width="300px">Kota</th>
-														<th width="200px">Sales</th>
-														<th width="300px">Cabang</th>
+														<th width="300px">Kode Produk</th>
+														<th width="300px">Nama Produk/Jasa</th>
+														<th width="300px">Deskripsi</th>
 														<th width="150px">Action</th>											
 													</tr>
 												</thead>
@@ -117,15 +111,9 @@ $(document).ready(function() {
 												foreach($results as $result){                                
 													print '<tr>';										
 													
-													print '<td>' . ($result["kategori_cust"]) . '-' . ($result["kode"]) . '</td>';
-													print '<td>' . ($result["nama_customer"]) . '</td>';
-													print '<td>' . ($result["alamat"]) . '</td>';
-													print '<td>' . ($result["kelurahan"]) . '</td>';
-													print '<td>' . ($result["kecamatan"]) . '</td>';
-													//print '<td>' . ($result["kode_pos"]) . '</td>';
-													print '<td>' . ($result["kota"]) . '</td>';
-													print '<td>' . ($result["nama_sales"]) . '</td>';
-													print '<td>' . ($result["nama_cabang"]) . '</td>';
+													print '<td>' . ($result["kode_produk"]) . '</td>';
+													print '<td>' . ($result["nama_produk"]) . '</td>';
+													print '<td>' . ($result["deskripsi"]) . '</td>';
 												
 													print '<td class="">';
 													print '<a target="" class="btn btn-xs btn-primary" href="' . site_url() . $class_name . '/entry/?id=' . $result["id"] . '">Edit</a>';
