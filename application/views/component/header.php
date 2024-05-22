@@ -435,7 +435,7 @@
 
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-rtl" autocomplete="off" />
-										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+										<label class="lbl" for="ace-settings-rtl"> Right To Left rtl</label>
 									</div>
 
 									<div class="ace-settings-item">
