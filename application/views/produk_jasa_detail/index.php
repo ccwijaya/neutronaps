@@ -3,16 +3,13 @@ $session_data = $this->session->userdata('logged_in');
 $global_id = $session_data['id'];
 $global_username = $session_data['username'];
 $global_nama_user = $session_data['nama_user'];
+$global_akses_harga_jual = $session_data['akses_harga_jual'];
 $global_level = $session_data['id_level'];
-$global_delete = $session_data['delete_akses'];
-//$global_pass_email = $session_data['pass_email'];
-//$global_sales = $session_data['id_sales'];
 $nowclass = $this->uri->segment('1');
 ?>
-
 <div class="main-content">
 	<div class="main-content-inner">
-
+	
 		<!-- /.breadcrumb -->
 		<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 			<ul class="breadcrumb">
@@ -23,11 +20,16 @@ $nowclass = $this->uri->segment('1');
 				<li>
 					<a href="<?php echo base_url();?><?php echo $class_name;?>"><?php echo $form_title;?></a>
 				</li>
-				<li class="active">History Pricing</li>
+				<li class="active">Data List</li>
 			</ul>
 		</div>
 		<!-- END OF breadcrumb -->
+<style>
+.page-link{
+	color:#000;
+}
 
+</style>
 <script language=javascript>
 <?php
 $msg = $this->session->flashdata('msg');
@@ -43,12 +45,12 @@ $(document).ready(function() {
 		scrollY: "300px",
 		scrollX: true,
 		scrollCollapse: true
-
+							
 		} );
 		} );
 </script>
 <div class="page-content">
-
+			
 			<div class="row">
 				<div class="col-xs-12">
 					<h4 class="lighter">
@@ -59,84 +61,85 @@ $(document).ready(function() {
 							<i class="ace-icon fa fa-close bigger-160"></i>Cancel
 						</button>
 					</h4>
-
+					
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="tabbable">
 								<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
-
+									
 									<li class="">
 											<a data-toggle="" href="<?php echo site_url();?><?php echo $class_name;?>/entry">
 												<i class="green ace-icon fa fa-home bigger-120"></i>
-												Entry Form
+												Data Entry 
 											</a>
 										</li>
+
 										<li class="active">
 											<a data-toggle="" href="<?php echo site_url();?><?php echo $class_name;?>">
 												<i class="orange ace-icon fa fa-folder bigger-120"></i>
-												Data List
+													Data List
 											</a>
 										</li>
 								</ul>
+								<style>
+												.text100{
+													width:100%;
+													height:500px;
+													overflow-y:auto;
+													overflow-x:scroll;
+
+												}
+											</style>
 
 								<div class="tab-content">
 									<div id="#" class="tab-pane fade in active">
 										<form method="post" id="formlist" action="">
 											<input type="hidden" name="deleteid" id="deleteid" value="">
 												<table id="listdata" class="table table-striped table-bordered table-hover" width="100%">
-									<thead>
-										<tr>
-											<th width="150">No Quotation</th>
-											<th width="100">Date</th>
-											<th>Branch</th>
-											<th width="160">Customer</th>
-											<th>Sales Name</th>
-											
-											<th width="180">Remarks</th>
-											<th width="170">Action</th>
-										</tr>
-									</thead>
-
-									<tbody>
-									<?php
-									foreach($results as $result){
-
-
-										print '<tr>';
-										print '<td>' . $result["no_bukti"] . '</td>';
-										print '<td>' . format_date($result["tanggal"]) . '</td>';
-										print '<td>' . ($result["nama_cabang"]) . '</td>';
-										print '<td>' . ($result["nama_customer"]) . '</td>';
-										print '<td>' . ($result["id_sales"]) . '</td>';
-										print '<td>' . ($result["keterangan"]) . '</td>';
-
-										print '<td class="" align="center">';
-											
-												print '<a target="" class="btn btn-info" href="' . site_url() . $class_name . '/entry/?id=' . $result["id"] . '">Edit</a>';
+												<thead>
+													<tr>
+														
+														<th width="300px">Kode Jasa</th>
+														<th width="300px">Nama Jasa</th>
+														<th width="300px">Keterangan</th>
 													
-												print '&nbsp;';
-											if($global_delete==1){
-												print '<a target="" class="btn-sm btn-danger" onclick="hapus(' . $result["id"] . ');"><i class="ace-icon fa fa-trash"></i></a>';
-											}else{
-												print '';
-											}
+														<th width="150px">Action</th>											
+													</tr>
+												</thead>
 
-											print '&nbsp;';
+												<tbody>
+												<?php
+												foreach($results as $result){                                
+													print '<tr>';										
+													
+													print '<td>' . ($result["kode_jasa_detail"]) . '</td>';
+													print '<td>' . ($result["nama_jasa"]) . '</td>';
+													print '<td>' . ($result["keterangan"]) . '</td>';
+												
+													print '<td class="">';
+													print '<a target="" class="btn btn-xs btn-primary" href="' . site_url() . $class_name . '/entry/?id=' . $result["id"] . '">Edit</a>';
+															print '&nbsp;';
+															if($global_level==2){
+																print '<a target="" class="btn btn-xs btn-danger" onclick="hapus(' . $result["id"] . ');">Delete</a>';
+															}else{
+																print '';
+															}
+															print '&nbsp;';
+													print '</td>';
+													print '</tr>';
+												}								
+												?>
+												</tbody>
+											</table>
+											</div>
 
+											
 
-										print '</td>';
-
-										print '</tr>';
-									}
-									?>
-									</tbody>
-								</table>
-								</form>
-									</div>
+										</form>
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>					
 				</div><!-- /.col -->
 			</div><!-- /.row -->
 		</div><!-- /.page-content -->
@@ -146,9 +149,9 @@ $(document).ready(function() {
 	function hapus(id){
 		var pesan = "";
 		pesan = "Anda yakin akan hapus data ini?";
-
+		
 		var r = confirm(pesan);
-
+		
 		if (r == true) {
 			location.href='<?php echo site_url();?><?php echo $class_name;?>/delete_data?id=' + id;
 		}
