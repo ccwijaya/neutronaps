@@ -9,7 +9,9 @@ $nowclass = $this->uri->segment('1');
 
 
 $id = "";
+$kode_reg = "";
 $kode_produk = "";
+$kode_reg = "";
 $nama_produk = "";
 $deskripsi = "";
 
@@ -18,7 +20,9 @@ $deskripsi = "";
 if($results != ""){							
 	foreach($results as $result){
 		$id = $result["id"];
+		$kode_reg = $result["kode_reg"];
 		$kode_produk = $result["kode_produk"];
+		$kode_reg = $result["kode_reg"];
 		$nama_produk = $result["nama_produk"];
 		$deskripsi = $result["deskripsi"];
 		
@@ -105,7 +109,6 @@ if($results != ""){
 									
 									
 												echo'<div class="row">';
-
 												echo'<div class="col-xs-12 col-sm-2">';
 												echo '<label>Kode Produk/Jasa</label>';
 												$param["name"] = "kode_produk";
@@ -115,8 +118,20 @@ if($results != ""){
 												echo textbox2($param);
 												unset($param);
 												echo '</div>';
-												
 
+												echo'<div class="col-xs-12 col-sm-2">';
+												echo '<label>Kode Registrasi</label>';
+												$param["name"] = "kode_reg";
+												//$param["class_column"] = "col-lg-5";
+												$param["required"] = "Y";
+												$param["value"] = $kode_reg;
+												echo textbox2($param);
+												unset($param);
+												echo '</div>';
+										
+												echo '</div>';
+
+												echo'<div class="row">';
 												echo'<div class="col-xs-12 col-sm-4">';
 												echo '<label>Nama Produk/Jasa</label>';
 												$param["name"] = "nama_produk";

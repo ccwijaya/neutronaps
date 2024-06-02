@@ -81,6 +81,7 @@ class Produk_Jasa extends CI_Controller {
 	function simpan() {	
 		$data["id"] = $this->input->post('id');
 		$data["kode_produk"] = $this->input->post('kode_produk');
+		$data["kode_reg"] = $this->input->post('kode_reg');
 		$data["nama_produk"] = $this->input->post('nama_produk');
 		$data["deskripsi"] = $this->input->post('deskripsi');;
 		// debug($data);

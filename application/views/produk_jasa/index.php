@@ -101,6 +101,7 @@ $(document).ready(function() {
 														
 														<th width="300px">Kode Produk</th>
 														<th width="300px">Nama Produk/Jasa</th>
+														<th width="300px">Kode Registrasi</th>
 														<th width="300px">Deskripsi</th>
 														<th width="150px">Action</th>											
 													</tr>
@@ -113,6 +114,7 @@ $(document).ready(function() {
 													
 													print '<td>' . ($result["kode_produk"]) . '</td>';
 													print '<td>' . ($result["nama_produk"]) . '</td>';
+													print '<td>' . ($result["kode_reg"]) . '</td>';
 													print '<td>' . ($result["deskripsi"]) . '</td>';
 												
 													print '<td class="">';
