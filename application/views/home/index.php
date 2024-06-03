@@ -101,7 +101,7 @@ $nowclass = $this->uri->segment('1');
 													//$today = date('Y-m-d H:i:s');
 													//debug($today);
 													$total_data_quote = "";
-													$rs_quote = get_value("SELECT id FROM sls_quotation where is_pre_project<>1");
+													$rs_quote = get_value("SELECT id FROM sls_quotation");
 														
 													$total_data_quote = count($rs_quote);
 												?>
