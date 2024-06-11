@@ -53,9 +53,9 @@ class M_sls_quotation extends CI_Model {
 	}
 
 	public function get_detail($id){
-		$this->db->select ( 'a.*, c.kode_jasa_detail, c.nama_jasa, e.nama_user, g.nama_customer, d.nama_kategori' );
+		$this->db->select ( 'a.*, c.kode_jasa_detail, c.nama_jasa, e.nama_user, g.nama_customer' );
 		$this->db->from("sls_quotation_detail a");
-		$this->db->join('sls_quotation b', 'a.id_profit = b.id', 'left');
+		$this->db->join('sls_quotation b', 'a.id_quotation = b.id', 'left');
 		$this->db->join('produk_jasa_detail c', 'c.id = a.id_produk_jasa_detail', 'left');
 		$this->db->join('web_user e', 'e.id = b.create_user', 'left');
 		$this->db->join('customer g', 'b.id_customer = g.id', 'left');
@@ -70,17 +70,16 @@ class M_sls_quotation extends CI_Model {
 	}
 
 	public function get_detail_print($id){
-		$this->db->select ( 'a.*, c.satuan_konversi, c.loading, c.unloading, f.unit, c.tipe_box, e.nama_user, e.jabatan, g.nama_customer, h.nama_sales, h.keterangan' );
+		$this->db->select ( 'a.*, e.nama_user, e.jabatan, g.nama_customer, h.nama_sales, h.keterangan' );
 		$this->db->from("sls_quotation_detail a");
-		$this->db->join('sls_quotation b', 'a.id_profit = b.id', 'left');
+		$this->db->join('sls_quotation b', 'a.id_quotation = b.id', 'left');
 		//$this->db->join('view_rute c', 'a.id_rute = c.id', 'left');
 		$this->db->join('web_user e', 'e.id = b.create_user', 'left');
-		$this->db->join('view_kategori_kirim d', 'a.id_kategori_kirim = d.id', 'left');
-		$this->db->join('moda f', 'c.id_moda = f.id', 'left');
+		//$this->db->join('view_kategori_kirim d', 'a.id_kategori_kirim = d.id', 'left');
+		//$this->db->join('moda f', 'c.id_moda = f.id', 'left');
 		$this->db->join('customer g', 'b.id_customer = g.id', 'left');
-		$this->db->join('sales h', 'h.nama_sales = b.id_sales', 'left');
-		$this->db->order_by("c.loading", "ASC");
-		$this->db->order_by("c.unloading", "ASC");
+		$this->db->join('sales h', 'h.nama_sales = b.nama_sales', 'left');
+	
 		//$this->db->where("a.status_koreksi",1);
 		$this->db->where("a.id_quotation", $id);
 		//$this->db->group_by("c.id", $id);

@@ -254,7 +254,7 @@
 							<tr>
 								<td>Sales Name</td>
 								<td>:</td>
-								<td><?php echo $rs_data[0]["id_sales"]; ?></td>
+								<td><?php echo $rs_data[0]["nama_sales"]; ?></td>
 							</tr>
 							<tr>
 								<td>Effective Date</td>
@@ -310,13 +310,13 @@
 				foreach ($rs_detail_print as $result) {
 					$counter++;
 					$loop++;
-					$status_koreksi = $result["status_koreksi"];
-					$tarif_final = 0;
-					if($status_koreksi==0){
-						$tarif_final = $result["tarif_pbl"];
-					}else{
-						$tarif_final = $result["tarif_nego"];
-					}
+					// $status_koreksi = $result["status_koreksi"];
+					// $tarif_final = 0;
+					// if($status_koreksi==0){
+					// 	$tarif_final = $result["tarif_pbl"];
+					// }else{
+					// 	$tarif_final = $result["tarif_nego"];
+					// }
 					//$kategori = $result["nama_kategori"];
 					// if($kategori=="REGULAR | OPTIONAL TOL"){
 					// 	$kategori = "REGULAR";
@@ -344,9 +344,9 @@
 			?>
 			<tr>
 				<td class="leftright2"><?php echo ($counter); ?></td>
-				<td class="leftright2"><?php echo ($result["loading"]); ?> - <?php echo ($result["unloading"]); ?></td>
-				<td class="leftright2" align="center"><?php echo ($result["unit"]); ?> <?php echo ($result["tipe_box"]); ?></td>
-				<td class="leftright2" align="right">Rp.<?php echo format_number($tarif_final); ?> / <?php echo ($result["satuan_konversi"]); ?></td>
+				<td class="leftright2"></td>
+				<td class="leftright2" align="center"></td>
+				<td class="leftright2" align="right"></td>
 			</tr>
 		<?php
 
@@ -405,35 +405,20 @@
 							<tr>
 								<td valign="top">1.</td>
 								<td>
-									<?php if ($rs_data[0]["edit_tc_1"] == null) {
-										echo "Tarif pengiriman barang adalah Free On Truck (FOT) dan tidak termasuk biaya lainnya";
-									} else {
-										echo $rs_data[0]["edit_tc_1"];
-									}
-									?>
+									term 1
 								</td>
 							</tr>
 							<tr>
 								<td valign="top">2.</td>
 								<td>
-									<?php if ($rs_data[0]["edit_tc_2"] == null) {
-										echo "Maksimum kapasitas muatan unit kendaraan Tronton Wingbox/Box = 25 Ton / 53 CBM";
-									} else {
-										echo $rs_data[0]["edit_tc_2"];
-									}
-									?>
+									term 2
 								</td>
 							</tr>
 							<tr>
 
 								<td valign="top">3.</td>
 								<td>
-									<?php if ($rs_data[0]["edit_tc_3"] == null) {
-										echo " Setiap pengiriman barang yang melebihi batas maksimal kapasitas muatan 25 Ton, maka dikenakan biaya Rp.450,- / Kg.";
-									} else {
-										echo $rs_data[0]["edit_tc_3"];
-									}
-									?>
+									term 3
 								</td>
 							</tr>
 								<tr>
@@ -450,7 +435,7 @@
 
 								<tr>
 								
-									<td valign="top">6.</td><td>Permintaan unit armada pengiriman diinformasikan H-1 kepada PIC <?php echo ($rs_data[0]["contact_admin"]); ?> dan DI CC kepada <?php echo ($rs_data[0]["nama_sales"]); ?> Email: <?php echo ($rs_data[0]["email_sales"]); ?>, No. HP: <?php echo ($rs_data[0]["no_wa"]); ?>.</td>
+									<td valign="top">6.</td><td>Permintaan unit armada pengiriman diinformasikan H-1 kepada PIC ??.</td>
 								</tr>
 								
 							
@@ -463,88 +448,46 @@
 									<td valign="top">8.</td><td>Apabila terdapat kondisi khusus dan atau tidak normal dalam proses pengiriman barang maka berlaku ketentuan sebagai berikut:</td>
 								</tr>
 								<tr>
-									<td></td><td>a) Biaya Overnight hari pertama dikenakan biaya sebesar Rp.<?php echo format_number($rs_data[0]["biaya_overnight"]) ?>,-.</td>
+									<td></td><td>a) Biaya Overnight hari pertama dikenakan biaya sebesar Rp.00,-.</td>
 								</tr>
 								<tr>
-									<td></td><td>b) Biaya Overnight hari kedua dikenakan <?php echo $rs_data[0]["biaya_overnight2"] ?> dari tarif pengiriman.</td>
+									<td></td><td>b) Biaya Overnight hari kedua dikenakan ?? dari tarif pengiriman.</td>
 								</tr>
 								<tr>
-									<td></td><td>c) Biaya Overnight hari ketiga dan seterusnya dikenakan <?php echo $rs_data[0]["biaya_overnight3"]?> dari tarif pengiriman.</td>
+									<td></td><td>c) Biaya Overnight hari ketiga dan seterusnya dikenakan ?? dari tarif pengiriman.</td>
 								</tr>
 								
 								<tr>
 									<td valign="top">9.</td><td>Biaya Multi Pickup & Multi Drop</td>
 								</tr>
 
-								<?php 
-								$total_dalam_kota = $rs_data[0]["biaya_multidrop_dalam"];
-								$total_luar_kota = $rs_data[0]["biaya_multidrop_luar"];
+							
+
+								<tr>
+									<td></td><td>a) Dalam Kota Rp.00,- / Titik &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Luar Kota Rp.00,- / Titik</td>	
+								</tr>
+
 								
-								?>
-
 								<tr>
-									<td></td><td>a) Dalam Kota Rp.<?php echo format_number($total_dalam_kota,0); ?>,- / Titik &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Luar Kota Rp.<?php echo format_number($total_luar_kota,0); ?>,- / Titik</td>	
+									<td valign="top">10.</td><td>term 10</td>
 								</tr>
-
-								<?php
-									if ($rs_data[0]["informasi_lain"]!="") { ?>
-								<tr>
-									<td valign="top">10.</td><td><?php echo $rs_data[0]["informasi_lain"]; ?></td>
-								</tr>
-								<?php } ?>
+							
 
 								<tr>
-									<td valign="top"><?php if ($rs_data[0]["informasi_lain"]!="") { echo '11'; }else { echo '10';}?>.</td><td>Tarif penawaran berlaku sampai dengan 7 hari kerja terhitung dari tanggal efektif <?php echo format_date($rs_data[0]["tanggal"]); ?>.</td>
+									<td valign="top">11.</td><td>Tarif penawaran berlaku sampai dengan 7 hari kerja terhitung dari tanggal efektif ?? .</td>
 								</tr>
 
 								<tr>
-									<td valign="top"><?php if ($rs_data[0]["informasi_lain"]!="") { echo '12'; }else { echo '11';}?>.</td><td>Tarif pengiriman belum termasuk PPN.</td>
+									<td valign="top">12.</td><td>Tarif pengiriman belum termasuk PPN.</td>
 								</tr>
 								
 										
 								<tr>
-									<td valign="top"><?php if ($rs_data[0]["informasi_lain"]!="") { echo '13'; }else { echo '12';}?>.</td><td>Jangka waktu pelunasan tagihan (TOP) adalah 
-									<?php 
-									if($rs_data[0]["cash"]==1){ 
-										echo "2 Hari";
-									}
-									if($rs_data[0]["cash"]!=1){ 
-										echo "";
-									}
-
-									if($rs_data[0]["days_7"]==1){ 
-										echo "7 Hari";
-									}
-									if($rs_data[0]["days_7"]!=1){ 
-										echo "";
-									}
-
-									if($rs_data[0]["days_14"]==1){ 
-										echo "14 Hari";
-									}
-									if($rs_data[0]["days_14"]!=1){ 
-										echo "";
-									}
-
-									if($rs_data[0]["days_21"]==1){ 
-										echo "21 Hari";
-									}
-									if($rs_data[0]["days_21"]!=1){ 
-										echo "";
-									}
-
-									if($rs_data[0]["days_30"]==1){ 
-										echo "30 Hari";
-									}
-									if($rs_data[0]["days_30"]!=1){ 
-										echo "";
-									}
-									?>
-									setelah invoice diterima.</td>
+									<td valign="top">13.</td><td>Jangka waktu pelunasan tagihan (TOP) adalah ??? setelah invoice diterima.</td>
 								</tr>
 								
 								<tr>
-									<td><?php if ($rs_data[0]["informasi_lain"]!="") { echo '14'; }else { echo '13';}?>.</td><td>Pembayaran transfer ke Bank:</td>
+									<td>14.</td><td>Pembayaran transfer ke Bank:</td>
 								</tr>
 								<tr>
 									<td></td><td>a) Nama Bank: OCBC NISP</td>
@@ -597,7 +540,7 @@
 							<tr>
 								<td></td>
 							</tr>
-			</table>
+						</table>
 			</td>
 
 			</tr>

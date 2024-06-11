@@ -107,7 +107,7 @@ $(document).ready(function() {
 										print '<td>' . format_date($result["tanggal"]) . '</td>';
 										print '<td>' . ($result["nama_cabang"]) . '</td>';
 										print '<td>' . ($result["nama_customer"]) . '</td>';
-										print '<td>' . ($result["id_sales"]) . '</td>';
+										print '<td>' . ($result["nama_sales"]) . '</td>';
 										print '<td>' . ($result["keterangan"]) . '</td>';
 
 										print '<td class="" align="center">';
