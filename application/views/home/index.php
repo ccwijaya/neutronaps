@@ -112,24 +112,7 @@ $nowclass = $this->uri->segment('1');
 												</div>
 											</div>
 
-											<div class="infobox infobox-green">
-												<div class="infobox-icon">
-													<i class="ace-icon fa fa-dollar"></i>
-												</div>
-												<?php
-													//$today = date('Y-m-d H:i:s');
-													//debug($today);
-													$total_data_quote = "";
-													$rs_quote = get_value("SELECT id FROM sls_quotation WHERE is_contract=1");
-														
-													$total_data_quote = count($rs_quote);
-												?>
-
-												<div class="infobox-data">
-													<span class="infobox-data-number" id="total_data_quote_"><?php echo format_number($total_data_quote); ?></span>
-													<div class="infobox-content">Contract released</div>
-												</div>
-											</div>
+											
 
 										
 

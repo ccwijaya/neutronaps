@@ -62,18 +62,15 @@ class Sls_quotation extends CI_Controller {
 			//$rs_cabang = $this->m_sls_quotation->get_cabang();
 			//$rs_act_setting = $this->m_sls_quotation->get_act_setting();
 			//$rs_segment = $this->m_sls_quotation->get_segment();
-			//$rs_rr = $this->m_sls_quotation->get_rr();
+			//$rs_area = $this->m_sls_quotation->get_area();
 			$rs_customer = $this->m_sls_quotation->get_customer($id);
-			$rs_detail_pnl = $this->m_sls_quotation->get_detail_pnl($id);
+			$rs_detail_rr = $this->m_sls_quotation->get_detail_rr($id);
 			$rs_cabang = $this->m_sls_quotation->get_cabang($id);
+			$rs_produk_jasa = $this->m_sls_quotation->get_produk_jasa($id);
+			$rs_produk_jasa_detail = $this->m_sls_quotation->get_produk_jasa_detail($id);
 			$rs_sales = $this->m_sls_quotation->get_sales($id);
-			$rs_produk_jasa_detail = $this->m_sls_quotation->get_produk_jasa_detail();
-			$rs_produk_jasa = $this->m_sls_quotation->get_produk_jasa();
-			//$rs_moda = $this->m_sls_quotation->get_moda($id);
-			//$rs_kategori_kirim = $this->m_sls_quotation->get_kategori_kirim($id);
-			//$rs_jenis_muatan = $this->m_sls_quotation->get_jenis_muatan($id);
-			//$rs_status_koreksi = $this->m_sls_quotation->get_status_koreksi($id);
-			//$rs_pre_quote = $this->m_sls_quotation->get_pre_quote($id);
+			
+			
 			
 			//debug($rs_product);
 			
@@ -88,20 +85,15 @@ class Sls_quotation extends CI_Controller {
 			}
 			$data['results'] = $results;
 			$data['rs_cabang'] = $rs_cabang;
+			$data['rs_produk_jasa'] = $rs_produk_jasa;
+			$data['rs_produk_jasa_detail'] = $rs_produk_jasa_detail;
 			$data['rs_sales'] = $rs_sales;
 			$data['rs_customer'] = $rs_customer;
 			//$data['rs_salesman'] = $rs_salesman;
 			//$data['rs_db_customer'] = $rs_db_customer;
-			$data['rs_detail_pnl'] = $rs_detail_pnl;
-			$data['rs_produk_jasa'] = $rs_produk_jasa;
-			$data['rs_produk_jasa_detail'] = $rs_produk_jasa_detail;
-			//$data['rs_moda'] = $rs_moda;
-			//$data['rs_kategori_kirim'] = $rs_kategori_kirim;
-			//$data['rs_jenis_muatan'] = $rs_jenis_muatan;
-			//$data['rs_rr'] = $rs_rr;
-			//$data['rs_status_koreksi'] = $rs_status_koreksi;
-			//$data['rs_pre_quote'] = $rs_pre_quote;
-			//$data['rs_detail_pic'] = $rs_detail_pic;
+			$data['rs_detail_rr'] = $rs_detail_rr;
+			
+			
 			
 			//$data['rs_detail_pretelan'] = $rs_detail_pretelan;
 
@@ -153,71 +145,25 @@ class Sls_quotation extends CI_Controller {
 	
 	}
 
-	function get_rute_by_id() {
-		$data["id"] = $this->input->get('id');
-		$results = $this->m_sls_quotation->get_rute_by_id($data);
-		echo json_encode($results);
-	
-	}
-
-	function get_kategori_kirim_by_id() {
-		$data["id"] = $this->input->get('id');
-		$results = $this->m_sls_quotation->get_kategori_kirim_by_id($data);
-		echo json_encode($results);
-	
-	}
-
-	function get_pq_detail_by_id() {
-		$data["id"] = $this->input->get('id');
-		$results = $this->m_sls_quotation->get_pq_detail_by_id($data);
-		echo json_encode($results);
-	
-	}
-
-	// function get_segment_by_id_db_customer() {
-	// 	$data["id"] = $this->input->get('id');
-	// 	// $data["id_cabang"] = $this->input->get('id_cabang');
-	// 	$results = $this->m_sls_quotation->get_segment_by_id_db_customer($data);
-	// 	echo json_encode($results);
-	// }
-
 	
 	function simpan() {
 		// debug($this->input->post());
 		$data["id"] = $this->input->post('id');
 		if($data["id"]==""){
 			// $data["no_bukti"] = $this->input->post('no_bukti');
-			$data["no_bukti"] = "PJF-NMA-" . date('d') . "-" . date('m') . date('y') . "-" . addzero(get_last_counter("QUOTATION-" . date('Y-m-d')), 3);
+			$data["no_bukti"] = "NMA-Q-" . date('d') . "-" . date('m') . date('y') . "-" . addzero(get_last_counter("NMA-Q" . date('Y-m-d')), 3);
 			// YPH-FP-Q-23-0320-001
 		}
-		$data["tanggal"] = db_date($this->input->post('tanggal'));
+
 		$data["nama_sales"] = $this->input->post('nama_sales');
 		$data["id_cabang"] = $this->input->post('id_cabang');
+		$data["tanggal"] = db_date($this->input->post('tanggal'));
 		$data["id_customer"] = $this->input->post('id_customer');
 		$data["id_produk_jasa"] = $this->input->post('id_produk_jasa');
 		$data["keterangan"] = $this->input->post('keterangan');
+		//$data["status_approve"] = 0;
+		
 
-
-		//== UPLOAD ==//
-		// $config['upload_path'] = './upload/';
-		// $config['allowed_types'] = '*';
-		// $config['max_size'] = '20480'; //20mb
-		// $config['overwrite'] = true;	
-		
-		// $config['file_name'] = 'Quotation_App_' . date("YmdHis");	
-		// $this->upload->initialize($config);
-		// if($this->upload->do_upload('attach_quote_app')){
-		// 	$image_bukti = $this->upload->data();
-		// 	$data["attach_quote_app"] = $image_bukti['file_name'];
-		// }
-		
-		// $config['file_name'] = 'Quotation_Old_' . date("YmdHis");
-		// $this->upload->initialize($config);
-		// if($this->upload->do_upload('attach_quote_old')){
-		// 	$image_bukti = $this->upload->data();
-		// 	$data["attach_quote_old"] = $image_bukti['file_name'];
-		// }
-		
 		// debug($this->input->post());
 		$result = 0;
 		$result = $this->m_sls_quotation->simpan_data($data, $data["id"]);	
@@ -227,30 +173,53 @@ class Sls_quotation extends CI_Controller {
 			$result = $this->m_sls_quotation->reset_data($data["id"]);
 			//$result = $this->m_sls_quotation->reset_data_pic($data["id"]);
 			
-			if($this->input->post('combo_jasa_detail') != ""){
-				$a_combo_jasa_detail = $this->input->post('combo_jasa_detail');
+			if($this->input->post('combo_produk_jasa_detail') != ""){
+				$a_combo_produk_jasa_detail = $this->input->post('combo_produk_jasa_detail');
 				$a_harga = $this->input->post('harga');
-			
+				
 				
 
 				// debug($a_id_nama_harga);
 				
 				
-				for($i=0;$i<count($a_combo_jasa_detail);$i++){
+				for($i=0;$i<count($a_combo_produk_jasa_detail);$i++){
 					// debug(count());
-					$data_detail["id_quotation"] = $data["id"];
-					$data_detail["id_produk_jasa_detail"] = $a_combo_jasa_detail[$i];					
+					$data_detail["id_rr"] = $data["id"];
+					$data_detail["id_produk_jasa_detail"] = $a_combo_produk_jasa_detail[$i];
 					$data_detail["harga"] = db_numeric($a_harga[$i]);
+				
+					
+					
+					
 					
 					
 
-					// debug($data_detail);
+					//debug($data_detail);
 
 					
 					$result = $this->m_sls_quotation->simpan_data_detail($data_detail);	
 				}
 			}
+
+			// if($this->input->post('nama_pic') != ""){
+			// 	$a_nama_pic = $this->input->post('nama_pic');
+			// 	$a_department_pic = $this->input->post('department_pic');
+			// 	$a_department_position = $this->input->post('department_position');
 				
+			// 	for($i=0;$i<count($a_nama_pic);$i++){
+			// 		// debug(count());
+			// 		$data_pic["id_sales_visit_report"] = $data["id"];
+			// 		$data_pic["nama_pic"] = $a_nama_pic[$i];
+			// 		$data_pic["department_pic"] = $a_department_pic[$i];
+			// 		$data_pic["department_position"] = $a_department_position[$i];
+					
+			// 		$result = $this->m_sls_quotation->simpan_data_pic($data_pic);	
+			// 	}
+			// }
+			
+			
+			
+			
 			$this->session->set_flashdata('success', 'Data Tersimpan');  
 		} else {
 			$this->session->set_flashdata('error', 'Data gagal tersimpan.');
