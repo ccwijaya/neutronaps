@@ -44,7 +44,7 @@
 		@media print {
 			div.divHeader {
 				position: fixed;
-				top: 0;
+				top: 5;
 				height: auto;
 				width: 100%;
 				border: 0;
@@ -52,7 +52,7 @@
 			}
 
 			div.divContent {
-				padding-top: 340px;
+				padding-top: 300px;
 				padding-left: 30px;
 				padding-right: 35px;
 				height: auto;
@@ -79,7 +79,7 @@
 			.header {
 				//position: fixed;
 
-				width: 95%;
+				width: 98%;
 				background-color: white;
 			}
 
@@ -111,7 +111,7 @@
 
 			.table_detail th {
 				border: 1px solid #000;
-				background-color: #3b5288;
+				background-color: #228B22;
 				color: white;
 			}
 
@@ -159,7 +159,7 @@
 
 			.customer {
 				color: white;
-				background-color: #3b5288;
+				background-color: #228B22;
 				width: 60%;
 				padding: 5px;
 				text-align: left;
@@ -170,7 +170,7 @@
 			}
 
 			.quotation {
-				color: #3b5288;
+				color: #228B22;
 				font-weight: bold;
 				font-size: 25px;
 				font-family: arial;
@@ -273,7 +273,14 @@
 			</table>
 		</div>
 
+
+
 		<div class="divContent">
+		<!-- <p>Dengan Hormat</p>
+		<p>Bersama ini perkenalkan kami dari PT. NEUTRON MITRA ABADI adalah perusahaan yang bergerak pada bidang jasa fumigasi dengan nomor registrasi <b>ID-0057-MB dan ID-0060-PH3</b>. Dengan ini kami penawaran
+						</br> -->
+		<b><?php echo $rs_data[0]["nama_produk"]; ?></b>
+		<p>
 			<?php
 			$counter = 0;
 			$limit = 25;
@@ -288,10 +295,9 @@
 			?>
 			<table class="table_detail" width=100%>
 				<tr>
-					<th width="30">No.</th>
-					<th width="250">Delivery Route</th>
-					<th width="120">Moda Transportation</th>
-					<th width="80">Rate Expedition</th>
+					<th width="30">NO.</th>
+					<th width="250">SERVICE</th>
+					<th width="120">RATE PRICE</th>
 					<!-- <th width="50">PBL Rate</th> -->
 				</tr>
 
@@ -310,18 +316,6 @@
 				foreach ($rs_detail_print as $result) {
 					$counter++;
 					$loop++;
-					// $status_koreksi = $result["status_koreksi"];
-					// $tarif_final = 0;
-					// if($status_koreksi==0){
-					// 	$tarif_final = $result["tarif_pbl"];
-					// }else{
-					// 	$tarif_final = $result["tarif_nego"];
-					// }
-					//$kategori = $result["nama_kategori"];
-					// if($kategori=="REGULAR | OPTIONAL TOL"){
-					// 	$kategori = "REGULAR";
-					// }
-					//$total += $result["harga_satuan"] * $result["qty"] * $result["detail_kurs_konversi"];
 					if ($loop == ($limit + 1)) {
 				?>
 						<tr>
@@ -331,10 +325,9 @@
 			<div class="divNextpage"></div>
 			<table class="table_detail" width=100%>
 				<tr>
-					<th width="30">No.</th>
-					<th width="250">Delivery Route</th>
-					<th width="120">Moda Transportation</th>
-					<th width="80">Rate Expedition</th>
+					<th width="30">NO.</th>
+					<th width="250">SERVICE</th>
+					<th width="120">RATE PRICE</th>
 					<!-- <th width="50">PBL Rate</th> -->
 				</tr>
 			<?php
@@ -343,10 +336,9 @@
 					}
 			?>
 			<tr>
-				<td class="leftright2"><?php echo ($counter); ?></td>
-				<td class="leftright2"></td>
-				<td class="leftright2" align="center"></td>
-				<td class="leftright2" align="right"></td>
+				<td class="leftright2" align="center"><?php echo ($counter); ?></td>
+				<td class="leftright2"><?php echo ($result["nama_jasa"]); ?></td>
+				<td class="leftright2" align="center">Rp.<?php echo format_number($result["harga"],0); ?></td>
 			</tr>
 		<?php
 
@@ -383,7 +375,9 @@
 		</tr>
 			</table>
 		</div>
+			
 		<div class="divFooter">
+			
 
 			<table border=0 width=100%>
 				<table>
@@ -405,107 +399,42 @@
 							<tr>
 								<td valign="top">1.</td>
 								<td>
-									term 1
+									Harga belum termasuk PPn 11%
 								</td>
 							</tr>
 							<tr>
 								<td valign="top">2.</td>
 								<td>
-									term 2
+									SPK diterima 2 (dua) hari sebelum pekerjaan
 								</td>
 							</tr>
 							<tr>
 
 								<td valign="top">3.</td>
 								<td>
-									term 3
+									Payment 2 (dua) minggu setelah invoice diterima
 								</td>
-							</tr>
+						
 								<tr>
-									<td valign="top">4.</td><td>Pemilik barang wajib mengansurasikan barang, selama masa pengiriman pihak pengangkut barang tidak bertanggung jawab atas kerusakan, dan atau kehilangan barang akibat kecelakaan, perampokan, pencurian serta kerusakan yang diakibatkan force majeure.</td>
-								</tr>
-
-								<!-- <tr>
-									<td valign="top">5.</td><td>Kerusakan, kehilangan dan atau kelalaian dalam proses pengiriman barang, merupakan tanggung jawab PT. Panca Budi Logistindo berdasarkan kepada kriteria klaim retur pengiriman yang telah disepakati, kecuali kerusakan Force Majeure.</td>
-								</tr> -->
-
-								<tr>
-									<td valign="top">5.</td><td>Biaya pembatalan unit  armada apabila unit armada  sudah dalam perjalanan maupun tiba dilokasi muat akan dikenakan denda Sebesar 50% dari tarif pengiriman.</td>
-								</tr>
-
-								<tr>
-								
-									<td valign="top">6.</td><td>Permintaan unit armada pengiriman diinformasikan H-1 kepada PIC ??.</td>
-								</tr>
-								
-							
-
-								<tr>
-									<td valign="top">7.</td><td>Tarif pengiriman barang dapat ditinjau kembali jika terjadi perubahan kebijakan peraturan pemerintah.</td>
-								</tr>
-
-								<tr>
-									<td valign="top">8.</td><td>Apabila terdapat kondisi khusus dan atau tidak normal dalam proses pengiriman barang maka berlaku ketentuan sebagai berikut:</td>
+									<td>4.</td><td>Pembayaran transfer ke Bank:</td>
 								</tr>
 								<tr>
-									<td></td><td>a) Biaya Overnight hari pertama dikenakan biaya sebesar Rp.00,-.</td>
+									<td></td><td>a) Nama Bank: MANDIRI</td>
 								</tr>
 								<tr>
-									<td></td><td>b) Biaya Overnight hari kedua dikenakan ?? dari tarif pengiriman.</td>
+									<td></td><td>b) Cabang: Radio Dalam, Jakarta Selatan</td>
 								</tr>
 								<tr>
-									<td></td><td>c) Biaya Overnight hari ketiga dan seterusnya dikenakan ?? dari tarif pengiriman.</td>
-								</tr>
-								
-								<tr>
-									<td valign="top">9.</td><td>Biaya Multi Pickup & Multi Drop</td>
-								</tr>
-
-							
-
-								<tr>
-									<td></td><td>a) Dalam Kota Rp.00,- / Titik &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Luar Kota Rp.00,- / Titik</td>	
-								</tr>
-
-								
-								<tr>
-									<td valign="top">10.</td><td>term 10</td>
-								</tr>
-							
-
-								<tr>
-									<td valign="top">11.</td><td>Tarif penawaran berlaku sampai dengan 7 hari kerja terhitung dari tanggal efektif ?? .</td>
-								</tr>
-
-								<tr>
-									<td valign="top">12.</td><td>Tarif pengiriman belum termasuk PPN.</td>
-								</tr>
-								
-										
-								<tr>
-									<td valign="top">13.</td><td>Jangka waktu pelunasan tagihan (TOP) adalah ??? setelah invoice diterima.</td>
-								</tr>
-								
-								<tr>
-									<td>14.</td><td>Pembayaran transfer ke Bank:</td>
+									<td></td><td>c) Nomor Rekening: </td>
 								</tr>
 								<tr>
-									<td></td><td>a) Nama Bank: OCBC NISP</td>
-								</tr>
-								<tr>
-									<td></td><td>b) Cabang: Kuningan, Jakarta Selatan</td>
-								</tr>
-								<tr>
-									<td></td><td>c) Nomor Rekening: 5458-000-39-111</td>
-								</tr>
-								<tr>
-									<td></td><td>d) Nama Rekening: PANCA BUDI LOGISTINDO</td>
+									<td></td><td>d) Nama Rekening: PT. NEUTRON MITRA ABADI</td>
 								</tr>
 
 						</table>
 
 
-
+						</br>
 						<table border=0 width=100% class="">
 
 							<tr>
@@ -513,7 +442,7 @@
 								<td></td>
 							</tr>
 							<tr>
-								<td align="center" colspan="2">PT. PANCA BUDI LOGISTINDO</td>
+								<td align="center" colspan="2">PT. NEUTRON MITRA ABADI</td>
 								<td></td>
 							</tr>
 
@@ -531,7 +460,7 @@
 								<td></td>
 							</tr>
 							<tr>
-								<td align="center"><?php echo ($rs_data[0]["jabatan"]); ?></td>
+								<td align="center">Sales Executive</td>
 							</tr>
 
 							<tr>

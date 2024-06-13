@@ -7,12 +7,13 @@ class M_sls_quotation extends CI_Model {
 		$id_cabang = $session_data['id_cabang'];
 		$is_cat_customer = $session_data['is_cat_customer'];
 		
-		$this->db->select ( 'a.*, b.nama_cabang, c.nama_customer, c.alamat, c.kota, c.kode_pos, d.nama_sales, f.nama_user');
+		$this->db->select ( 'a.*, b.nama_cabang, c.nama_customer, c.alamat, c.pic, c.kota, c.kode_pos, d.nama_sales, f.nama_user, g.nama_produk');
 		$this->db->from($this->main_table . " a");
 		$this->db->join('cabang b', 'a.id_cabang = b.id', 'left');
 		$this->db->join('customer c', 'a.id_customer = c.id', 'left');
 		$this->db->join('sales d', 'a.nama_sales = d.nama_sales', 'left');
 		$this->db->join('web_user f', 'a.create_user = f.id', 'left');
+		$this->db->join('produk_jasa g', 'a.id_produk_jasa = g.id', 'left');
 		
 		if($id!=""){
 			$this->db->where("a.id", $id);
@@ -20,14 +21,6 @@ class M_sls_quotation extends CI_Model {
 
 		if($id_cabang!=0){
 			$this->db->where("a.id_cabang", $id_cabang);
-		}
-
-		if($is_cat_customer == 1){
-			$this->db->where("c.kategori_cust", "EXT");
-		}
-
-		if($is_cat_customer == 2){
-			$this->db->where("c.kategori_cust", "INT");
 		}
 		
 		
@@ -69,7 +62,7 @@ class M_sls_quotation extends CI_Model {
 		
 		$this->db->join('customer g', 'b.id_customer = g.id', 'left');
 		$this->db->where("a.id_rr", $id);
-		$this->db->group_by("c.id", $id);
+		//$this->db->group_by("c.id", $id);
 		$query = $this->db->get();
 		//debug($this->db->last_query());
 		$result = $query->result_array();	
@@ -78,10 +71,10 @@ class M_sls_quotation extends CI_Model {
 	}
 
 	public function get_detail_print($id){
-		$this->db->select ( 'a.*, e.nama_user, e.jabatan, g.nama_customer, h.nama_sales, h.keterangan' );
+		$this->db->select ( 'a.*, c.nama_jasa, e.nama_user, e.jabatan, g.nama_customer, h.nama_sales, h.keterangan' );
 		$this->db->from("sls_quotation_detail a");
-		$this->db->join('sls_quotation b', 'a.id_quotation = b.id', 'left');
-		//$this->db->join('view_rute c', 'a.id_rute = c.id', 'left');
+		$this->db->join('sls_quotation b', 'a.id_rr = b.id', 'left');
+		$this->db->join('produk_jasa_detail c', 'a.id_produk_jasa_detail = c.id', 'left');
 		$this->db->join('web_user e', 'e.id = b.create_user', 'left');
 		//$this->db->join('view_kategori_kirim d', 'a.id_kategori_kirim = d.id', 'left');
 		//$this->db->join('moda f', 'c.id_moda = f.id', 'left');
@@ -89,7 +82,7 @@ class M_sls_quotation extends CI_Model {
 		$this->db->join('sales h', 'h.nama_sales = b.nama_sales', 'left');
 	
 		//$this->db->where("a.status_koreksi",1);
-		$this->db->where("a.id_quotation", $id);
+		$this->db->where("a.id_rr", $id);
 		//$this->db->group_by("c.id", $id);
 		$query = $this->db->get();
 		//debug($this->db->last_query());

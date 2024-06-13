@@ -124,7 +124,7 @@ class Sls_quotation extends CI_Controller {
 			
 			
 			$data["rs_data"] = $this->m_sls_quotation->get_data($id);
-			$data["rs_detail"] = $this->m_sls_quotation->get_detail($id);
+			//$data["rs_detail"] = $this->m_sls_quotation->get_detail($id);
 			$data["rs_detail_print"] = $this->m_sls_quotation->get_detail_print($id);
 			// debug($rs_data);
 			//$data["results"] = $this->m_sls_quotation->get_data($id);
