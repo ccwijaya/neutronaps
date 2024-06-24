@@ -153,6 +153,13 @@ class Sls_po_customer extends CI_Controller {
 	
 	}
 
+	function get_produk_jasa_detail_by_id() {
+		$data["id"] = $this->input->get('id');
+		$results = $this->m_sls_po_customer->get_produk_jasa_detail_by_id($data);
+		echo json_encode($results);
+	
+	}
+
 	
 	function simpan() {
 		// debug($this->input->post());

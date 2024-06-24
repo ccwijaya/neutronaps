@@ -182,7 +182,7 @@ class M_sls_po_customer extends CI_Model {
 	public function get_quote_detail_by_id($param){
 		extract($param);
 		
-		$this->db->select ( 'a.*, b.id_produk_jasa_detail, d.nama_produk, e.nama_jasa, b.harga, c.nama_sales' );
+		$this->db->select ( 'a.*, b.id_produk_jasa_detail as id_produk_detail, d.nama_produk, e.nama_jasa, b.harga, c.nama_sales' );
 		$this->db->from("sls_quotation a");
 		$this->db->join('sls_quotation_detail b', 'b.id_rr = a.id', 'left');	
 		$this->db->join('sales c', 'c.nama_sales = a.nama_sales', 'left');	
@@ -203,14 +203,11 @@ class M_sls_po_customer extends CI_Model {
 	public function get_produk_jasa_detail_by_id($param){
 		extract($param);
 		
-		$this->db->select ( 'a.*, b.id_produk_jasa_detail, d.nama_produk, e.nama_jasa, b.harga, c.nama_sales' );
-		$this->db->from("sls_quotation a");
-		$this->db->join('sls_quotation_detail b', 'b.id_rr = a.id', 'left');	
-		$this->db->join('sales c', 'c.nama_sales = a.nama_sales', 'left');	
-		$this->db->join('produk_jasa d', 'd.id = a.id_produk_jasa', 'left');	
-		$this->db->join('produk_jasa_detail e', 'e.id = b.id_produk_jasa_detail', 'left');			
+		$this->db->select ( 'a.id_produk_jasa_detail, b.nama_jasa, a.harga as harga_jasa' );
+		$this->db->from("sls_quotation_detail a");
+		$this->db->join('produk_jasa_detail b', 'b.id = a.id_produk_jasa_detail', 'left');			
 		// if($id!=""){
-		$this->db->where("a.id", $id);
+		$this->db->where("b.id", $id);
 		//$this->db->where("a.status", 1);
 		
 		$query = $this->db->get();

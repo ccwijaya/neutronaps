@@ -511,12 +511,7 @@ function combo_detail($rs_opsi, $id, $name, $value, $attr){
 																		print '<tr>';										
 																		print '<td>'.$i.'.</td>';
 																		print '<td>' . combo_detail($rs_produk_jasa_detail, "combo_produk_jasa_detail_".$i, "combo_produk_jasa_detail[]", $result["id_produk_jasa_detail"], "onchange='change_combo_produk_jasa_detail(".$i.");'"). '</td>';
-																		
-																		
-																		
 																		print '<td>' . numericbox_detail("harga_".$i, "harga[]", format_number($result["harga"],2)) . '</td>';
-																		
-
 																		print '<td class="">
 																				<a target="" class="btn btn-xs btn-danger" id="btn_del">Delete</a>
 																			</td>';
@@ -740,16 +735,32 @@ $(document).ready(function(){
 								$('#id_customer').trigger("chosen:updated");
 							}
 							
-							if(k=="id_produk_jasa_detail"){
-								console.log("id_produk_jasa_detail : " + v);
+							if(k=="id_produk_detail"){
+								console.log("id_produk_detail : " + v);
 								
 								add_row_detail();
 								
-								$("#change_combo_produk_jasa_detail_" + (last_counter-1)).val(v);
-								$("#change_combo_produk_jasa_detail_" + (last_counter-1)).trigger("chosen:updated");
+								$("#combo_produk_jasa_detail_" + (last_counter-1)).val(v);
+								$("#combo_produk_jasa_detail_" + (last_counter-1)).trigger("chosen:updated");
 								
-								//change_combo_produk_jasa_detail(last_counter-1);
+								change_combo_produk_jasa_detail(last_counter-1);
 							}
+
+							if(k=="harga"){
+								$("#harga_" + (last_counter-1)).val(v);
+								//$('#id_sales').trigger("chosen:updated");
+							}
+
+							// if(k=="id_po"){
+							// 	console.log("id_po : " + v);
+										
+							// 			add_row_detail();
+										
+							// 			$("#id_po_account_" + (last_counter-1)).val(v);
+							// 			$("#id_po_account_" + (last_counter-1)).trigger("chosen:updated");
+										
+							// 			change_combo_po_account(last_counter-1);
+							// }
 
 							// if(k=="harga"){
 							// 	// var xx = $("#is_pembulatan").val();
@@ -864,7 +875,7 @@ function change_combo_produk_jasa_detail(xcounter){
 	console.log("text:" + text);
 
 	
-	var id_produk_jasa_detail = $("#combo_produk_jasa_detail_"+xcounter).val();
+	var id_jasa_detail = $("#combo_produk_jasa_detail_"+xcounter).val();
 
 	
 	
@@ -872,114 +883,23 @@ function change_combo_produk_jasa_detail(xcounter){
 		type: "GET",
 		async: false,
 		url: "<?php echo base_url(); ?>" + "sls_po_customer/get_produk_jasa_detail_by_id",			
-		data: {id: id_produk_jasa_detail},
+		data: {id: id_jasa_detail},
 		dataType: 'json',
 		success: function(res) {
 			// console.log("RES : " + res);
 			
 			if (res){
-				//== sample json code : [{"id":"1","nama":"aaa - 2020-03-04"},{"id":"2","nama":"asd - 2020-03-05"}] ==//
+				
 				//== looping row ==//
 				$.each(res, function() {
 					//== looping column ==//
 				  $.each(this, function(k, v) {
 					/// do stuff
 					
-					if(k=="harga"){
+					if(k=="harga_jasa"){
 						$("#harga_"+xcounter).val(toRp(v,2));
 					}
 
-					// // if(k=="total_km"){
-					// // 	$("#total_km_pm_"+xcounter).val(toRp(v,2));
-					// // }
-
-					// if(k=="total_waktu"){
-					// 	$("#total_hari_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="total_cost_tol"){
-					// 	$("#tol_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="biaya_kapal"){
-					// 	$("#kapal_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="jumlah_bbm"){
-					// 	$("#total_bbm_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="mel"){
-					// 	$("#mel_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="umk_supir"){
-					// 	$("#uang_harian_supir_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="total_lembur_supir"){
-					// 	$("#lembur_supir_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="umk_kenek"){
-					// 	$("#uang_harian_kenek_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="total_lembur_kenek"){
-					// 	$("#lembur_kenek_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="spareparts"){
-					// 	$("#spareparts_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="bongkar"){
-					// 	$("#bongkar_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="muat"){
-					// 	$("#muat_pm_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="pulsa"){
-					// 	$("#internet_pm_"+xcounter).val(toRp(v,2));
-					// }	
-
-					// if(k=="total_varian_cost"){
-					// 	$("#total_varian_cost_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="fix_cost"){
-					// 	$("#fix_cost_"+xcounter).val(toRp(v,2));
-					// }
-
-					// if(k=="tarif_vendor"){
-					// 	$("#tarif_vendor_"+xcounter).val(toRp(v,2));
-					// }
-					// if(k=="reff_vendor"){
-					// 	$("#reff_vendor_"+xcounter).val((v));
-					// }
-
-					// if(k=="tarif_internal"){
-					// 	$("#tarif_internal_"+xcounter).val(toRp(v,2));
-					// }
-					// if(k=="reff_internal"){
-					// 	$("#reff_internal_"+xcounter).val((v));
-					// }
-
-					// if(k=="tarif_platform"){
-					// 	$("#tarif_platform_"+xcounter).val(toRp(v,2));
-					// }
-					// if(k=="reff_platform"){
-					// 	$("#reff_platform_"+xcounter).val((v));
-					// }
-					
-					// if(k=="satuan_besar"){
-					// 	// alert(v);
-					// 	satuan_besar = v;
-					// 	// $("#combo_satuan_"+xcounter).val(v);
-					// 	// $("div.id_100 select").val("val2");
-					// }
 					
 					console.log(k + " : " + v);
 				  });
@@ -987,7 +907,7 @@ function change_combo_produk_jasa_detail(xcounter){
 			}
 		}
 	});
-	hitung_total();
+	//hitung_total();
 	
 	//console.log("satuan_besar:"+satuan_besar);
 	// console.log("is_pembulatan:"+is_pembulatan);
