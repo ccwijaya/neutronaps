@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.5-10.1.8-MariaDB)
-# Date: 2024-07-01 16:01:39
+# Date: 2024-07-01 23:19:55
 # Generator: MySQL-Front 6.0  (Build 2.20)
 
 
@@ -63,13 +63,13 @@ CREATE TABLE `counter` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 
 #
 # Data for table "counter"
 #
 
-INSERT INTO `counter` VALUES (1,'QUOTATION-2024-06-02',2,NULL,NULL,NULL,NULL),(2,'NMA-Q2024-06-12',1,NULL,NULL,NULL,NULL),(3,'NMA-Q2024-06-20',3,NULL,NULL,NULL,NULL),(4,'NMA-WO2024-07-01',1,NULL,NULL,NULL,NULL);
+INSERT INTO `counter` VALUES (1,'QUOTATION-2024-06-02',2,NULL,NULL,NULL,NULL),(2,'NMA-Q2024-06-12',1,NULL,NULL,NULL,NULL),(3,'NMA-Q2024-06-20',3,NULL,NULL,NULL,NULL),(4,'NMA-WO2024-07-01',1,NULL,NULL,NULL,NULL),(5,'NMA-BA2024-07-01',9,NULL,NULL,NULL,NULL);
 
 #
 # Structure for table "criticsuggestion"
@@ -297,8 +297,8 @@ CREATE TABLE `sls_ba` (
   `tempat_fumigasi` varchar(255) DEFAULT NULL,
   `waktu_pelepasan` varchar(255) DEFAULT NULL,
   `durasi_fumigasi` varchar(255) DEFAULT NULL,
-  `fumigan_digunakan` varchar(255) DEFAULT NULL,
-  `dosis_fumigan` varchar(255) DEFAULT NULL,
+  `fumigasi_digunakan` varchar(255) DEFAULT NULL,
+  `dosis_fumigasi` varchar(255) DEFAULT NULL,
   `create_user` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_user` int(11) DEFAULT NULL,
@@ -310,6 +310,7 @@ CREATE TABLE `sls_ba` (
 # Data for table "sls_ba"
 #
 
+INSERT INTO `sls_ba` VALUES (1,1,1,'NMA-BA-01-0724-006',NULL,'2024-07-01','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Santoso',NULL,2,NULL,NULL,NULL,NULL,'546547jfkgjf','singapura','rituirturi','hjhjkhj','12:00','3 Jam',NULL,'5670',1,'2024-07-01 17:27:54',NULL,NULL);
 
 #
 # Structure for table "sls_ba_detail"
@@ -332,6 +333,62 @@ CREATE TABLE `sls_ba_detail` (
 # Data for table "sls_ba_detail"
 #
 
+INSERT INTO `sls_ba_detail` VALUES (1,1,3,34.00,1,'2024-07-01 17:27:54',NULL,NULL),(2,1,1,567.00,1,'2024-07-01 17:27:54',NULL,NULL),(3,1,4,9090.00,1,'2024-07-01 17:27:54',NULL,NULL);
+
+#
+# Structure for table "sls_invoice"
+#
+
+DROP TABLE IF EXISTS `sls_invoice`;
+CREATE TABLE `sls_invoice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ba` int(11) DEFAULT NULL,
+  `id_cabang` int(11) DEFAULT NULL,
+  `no_bukti` varchar(255) DEFAULT NULL,
+  `tanggal` varchar(255) DEFAULT NULL,
+  `id_customer` varchar(255) DEFAULT NULL,
+  `nama_sales` varchar(255) DEFAULT NULL,
+  `keterangan` varchar(255) DEFAULT NULL,
+  `id_produk_jasa` int(11) DEFAULT NULL,
+  `tujuan` varchar(255) DEFAULT NULL,
+  `no_container` varchar(255) DEFAULT NULL,
+  `top` int(11) DEFAULT NULL,
+  `ppn` int(11) DEFAULT NULL,
+  `create_user` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_user` int(11) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+#
+# Data for table "sls_invoice"
+#
+
+INSERT INTO `sls_invoice` VALUES (1,1,1,'NMA-INV-01-0724-002','2024-07-01','1','Santoso',NULL,2,'singapura','546547jfkgjf',30,1,1,'2024-07-01 17:07:42',1,'2024-07-01 17:44:37');
+
+#
+# Structure for table "sls_invoice_detail"
+#
+
+DROP TABLE IF EXISTS `sls_invoice_detail`;
+CREATE TABLE `sls_invoice_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_invoice` int(11) DEFAULT NULL,
+  `id_produk_jasa_detail` int(11) DEFAULT NULL,
+  `harga` decimal(10,2) DEFAULT NULL,
+  `create_user` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_user` int(11) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+#
+# Data for table "sls_invoice_detail"
+#
+
+INSERT INTO `sls_invoice_detail` VALUES (13,1,3,34.00,1,'2024-07-01 17:44:37',NULL,NULL),(14,1,1,567.00,1,'2024-07-01 17:44:37',NULL,NULL),(15,1,4,9090.00,1,'2024-07-01 17:44:37',NULL,NULL);
 
 #
 # Structure for table "sls_po_customer"
@@ -368,7 +425,7 @@ CREATE TABLE `sls_po_customer` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 #
 # Data for table "sls_po_customer"
@@ -391,7 +448,7 @@ CREATE TABLE `sls_po_customer_detail` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 #
 # Data for table "sls_po_customer_detail"
@@ -623,13 +680,13 @@ CREATE TABLE `web_log` (
   `ip` varchar(100) DEFAULT '',
   `timing` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 #
 # Data for table "web_log"
 #
 
-INSERT INTO `web_log` VALUES (1,'admin','admin123',1,'','2024-04-30 11:28:39'),(2,'admin','admin123',1,'','2024-04-30 11:32:27'),(3,'admin','admin140313',0,'','2024-05-04 12:17:36'),(4,'admin','admin123',1,'','2024-05-04 12:17:39'),(5,'admin','admin123',1,'','2024-05-22 14:49:36'),(6,'candra','ccw140313',0,'','2024-06-02 15:56:09'),(7,'candra','ccw140313',0,'','2024-06-02 15:56:14'),(8,'candra','ccw140313',0,'','2024-06-03 11:12:29'),(9,'admin','admin12',0,'','2024-06-03 11:39:01'),(10,'admin','admin123',1,'','2024-06-03 11:39:05'),(11,'admin','admin123',1,'','2024-06-11 12:08:52'),(12,'admin','admin123',1,'','2024-06-11 16:25:02'),(13,'admin','admin123',1,'','2024-06-12 09:48:34'),(14,'admin','admin123',1,'','2024-06-12 10:39:55'),(15,'admin','admin123',1,'','2024-06-12 10:46:08'),(16,'admin','admin123',1,'','2024-06-12 16:28:48'),(17,'admin','admin123',1,'','2024-06-12 16:39:52'),(18,'admin','admin123',1,'','2024-06-12 17:18:13'),(19,'admin','admin123',1,'','2024-06-12 17:54:24'),(20,'admin','admin123',1,'','2024-06-13 04:43:54'),(21,'admin','admin123',1,'','2024-06-20 13:37:56'),(22,'admin','admin123',1,'','2024-06-24 11:04:59'),(23,'admin','admin123',1,'','2024-06-26 03:15:43'),(24,'admin','admin123',1,'','2024-06-26 09:33:47'),(25,'admin','admin123',1,'','2024-06-27 04:40:49'),(26,'admin','admin123',1,'','2024-07-01 09:36:54');
+INSERT INTO `web_log` VALUES (1,'admin','admin123',1,'','2024-04-30 11:28:39'),(2,'admin','admin123',1,'','2024-04-30 11:32:27'),(3,'admin','admin140313',0,'','2024-05-04 12:17:36'),(4,'admin','admin123',1,'','2024-05-04 12:17:39'),(5,'admin','admin123',1,'','2024-05-22 14:49:36'),(6,'candra','ccw140313',0,'','2024-06-02 15:56:09'),(7,'candra','ccw140313',0,'','2024-06-02 15:56:14'),(8,'candra','ccw140313',0,'','2024-06-03 11:12:29'),(9,'admin','admin12',0,'','2024-06-03 11:39:01'),(10,'admin','admin123',1,'','2024-06-03 11:39:05'),(11,'admin','admin123',1,'','2024-06-11 12:08:52'),(12,'admin','admin123',1,'','2024-06-11 16:25:02'),(13,'admin','admin123',1,'','2024-06-12 09:48:34'),(14,'admin','admin123',1,'','2024-06-12 10:39:55'),(15,'admin','admin123',1,'','2024-06-12 10:46:08'),(16,'admin','admin123',1,'','2024-06-12 16:28:48'),(17,'admin','admin123',1,'','2024-06-12 16:39:52'),(18,'admin','admin123',1,'','2024-06-12 17:18:13'),(19,'admin','admin123',1,'','2024-06-12 17:54:24'),(20,'admin','admin123',1,'','2024-06-13 04:43:54'),(21,'admin','admin123',1,'','2024-06-20 13:37:56'),(22,'admin','admin123',1,'','2024-06-24 11:04:59'),(23,'admin','admin123',1,'','2024-06-26 03:15:43'),(24,'admin','admin123',1,'','2024-06-26 09:33:47'),(25,'admin','admin123',1,'','2024-06-27 04:40:49'),(26,'admin','admin123',1,'','2024-07-01 09:36:54'),(27,'admin','admin123',1,'','2024-07-01 16:42:53');
 
 #
 # Structure for table "web_user"
@@ -698,7 +755,7 @@ CREATE TABLE `web_user` (
 # Data for table "web_user"
 #
 
-INSERT INTO `web_user` VALUES (1,'admin',NULL,NULL,2,4,'Logistic Analyst Spv',NULL,0,'Admin','0192023a7bbd73250516f069df18b500','081298868898','admin@gmail.com',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,1,NULL,1,1,3,NULL,NULL,'avatar2.png','ttd.jpeg',NULL,NULL,0,1,'2024-07-01 09:36:54',1,NULL,'2022-12-19 02:14:00',1,'2024-07-01 09:36:54');
+INSERT INTO `web_user` VALUES (1,'admin',NULL,NULL,2,4,'Logistic Analyst Spv',NULL,0,'Admin','0192023a7bbd73250516f069df18b500','081298868898','admin@gmail.com',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,1,NULL,1,1,3,NULL,NULL,'avatar2.png','ttd.jpeg',NULL,NULL,0,1,'2024-07-01 16:42:53',1,NULL,'2022-12-19 02:14:00',1,'2024-07-01 16:42:53');
 
 #
 # Structure for table "web_user_level"
@@ -737,13 +794,13 @@ CREATE TABLE `web_user_menu` (
   PRIMARY KEY (`id`),
   KEY `idx1` (`id_user`),
   KEY `idx2` (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=4618 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4619 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 #
 # Data for table "web_user_menu"
 #
 
-INSERT INTO `web_user_menu` VALUES (4603,1,8,1,'2024-04-30 11:11:21',NULL,NULL),(4604,1,7,1,'2024-04-30 11:11:21',NULL,NULL),(4605,1,12,1,'2024-04-30 11:11:21',NULL,NULL),(4606,1,10,1,'2024-04-30 11:11:21',NULL,NULL),(4607,1,11,1,'2024-04-30 11:11:21',NULL,NULL),(4608,1,5,1,'2024-04-30 11:11:21',NULL,NULL),(4609,1,6,1,'2024-04-30 11:11:21',NULL,NULL),(4610,1,3,1,'2024-04-30 11:11:21',NULL,NULL),(4611,1,4,1,'2024-04-30 11:11:21',NULL,NULL),(4612,1,2,1,'2024-04-30 11:11:21',NULL,NULL),(4613,1,9,1,'2024-04-30 11:11:21',NULL,NULL),(4614,1,1,1,'2024-04-30 11:11:21',NULL,NULL),(4615,1,13,NULL,NULL,NULL,NULL),(4616,1,14,NULL,NULL,NULL,NULL),(4617,1,15,NULL,NULL,NULL,NULL),(4618,1,16,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu` VALUES (4603,1,8,1,'2024-04-30 11:11:21',NULL,NULL),(4604,1,7,1,'2024-04-30 11:11:21',NULL,NULL),(4605,1,12,1,'2024-04-30 11:11:21',NULL,NULL),(4606,1,10,1,'2024-04-30 11:11:21',NULL,NULL),(4607,1,11,1,'2024-04-30 11:11:21',NULL,NULL),(4608,1,5,1,'2024-04-30 11:11:21',NULL,NULL),(4609,1,6,1,'2024-04-30 11:11:21',NULL,NULL),(4610,1,3,1,'2024-04-30 11:11:21',NULL,NULL),(4611,1,4,1,'2024-04-30 11:11:21',NULL,NULL),(4612,1,2,1,'2024-04-30 11:11:21',NULL,NULL),(4613,1,9,1,'2024-04-30 11:11:21',NULL,NULL),(4614,1,1,1,'2024-04-30 11:11:21',NULL,NULL),(4615,1,13,NULL,NULL,NULL,NULL),(4616,1,14,NULL,NULL,NULL,NULL),(4617,1,15,NULL,NULL,NULL,NULL),(4618,1,16,NULL,NULL,NULL,NULL),(4619,1,17,NULL,NULL,NULL,NULL);
 
 #
 # Structure for table "web_user_menu_list"
@@ -761,13 +818,13 @@ CREATE TABLE `web_user_menu_list` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 #
 # Data for table "web_user_menu_list"
 #
 
-INSERT INTO `web_user_menu_list` VALUES (1,'user','Setting','User Setup',NULL,NULL,NULL,NULL,NULL),(2,'profil','Setting','Profile',NULL,NULL,NULL,NULL,NULL),(3,'cabang','Setting','Master Cabang',NULL,NULL,NULL,NULL,NULL),(4,'sales','Setting','Master Sales',NULL,NULL,NULL,NULL,NULL),(5,'customer','Sales','Master Customer Trucking',NULL,NULL,NULL,NULL,NULL),(6,'sls_quotation','Sales','Quotation',NULL,NULL,NULL,NULL,NULL),(7,'gnr_timeline','All Dept','Timeline Progress',NULL,NULL,NULL,NULL,NULL),(8,'gnr_timeline','All Dept','Time Line',NULL,NULL,NULL,NULL,NULL),(9,'gnr_timeline_received','Setting','Time Line Receiving',NULL,NULL,NULL,NULL,NULL),(10,'gnr_timeline_Approval','Approval','Time Line Approval',NULL,NULL,NULL,NULL,NULL),(11,'sls_contract','Sales','Contract',NULL,NULL,NULL,NULL,NULL),(12,'sls_quotation_unlock','Approval','Quotation Unlock',NULL,NULL,NULL,NULL,NULL),(13,'produk_jasa','Admin','Produk Jasa',NULL,NULL,NULL,NULL,NULL),(14,'produk_jasa_detail','Admin','Produk Jasa Detail',NULL,NULL,NULL,NULL,NULL),(15,'sls_po_customer','Admin','PO Customer',NULL,NULL,NULL,NULL,NULL),(16,'sls_ba','Admin','Berita Acara',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `web_user_menu_list` VALUES (1,'user','Setting','User Setup',NULL,NULL,NULL,NULL,NULL),(2,'profil','Setting','Profile',NULL,NULL,NULL,NULL,NULL),(3,'cabang','Setting','Master Cabang',NULL,NULL,NULL,NULL,NULL),(4,'sales','Setting','Master Sales',NULL,NULL,NULL,NULL,NULL),(5,'customer','Sales','Master Customer Trucking',NULL,NULL,NULL,NULL,NULL),(6,'sls_quotation','Sales','Quotation',NULL,NULL,NULL,NULL,NULL),(7,'gnr_timeline','All Dept','Timeline Progress',NULL,NULL,NULL,NULL,NULL),(8,'gnr_timeline','All Dept','Time Line',NULL,NULL,NULL,NULL,NULL),(9,'gnr_timeline_received','Setting','Time Line Receiving',NULL,NULL,NULL,NULL,NULL),(10,'gnr_timeline_Approval','Approval','Time Line Approval',NULL,NULL,NULL,NULL,NULL),(11,'sls_contract','Sales','Contract',NULL,NULL,NULL,NULL,NULL),(12,'sls_quotation_unlock','Approval','Quotation Unlock',NULL,NULL,NULL,NULL,NULL),(13,'produk_jasa','Admin','Produk Jasa',NULL,NULL,NULL,NULL,NULL),(14,'produk_jasa_detail','Admin','Produk Jasa Detail',NULL,NULL,NULL,NULL,NULL),(15,'sls_po_customer','Admin','PO Customer',NULL,NULL,NULL,NULL,NULL),(16,'sls_ba','Admin','Berita Acara',NULL,NULL,NULL,NULL,NULL),(17,'sls_invoice','Admin','Invoice',NULL,NULL,NULL,NULL,NULL);
 
 #
 # View "view_customer"
