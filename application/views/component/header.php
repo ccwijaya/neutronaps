@@ -483,7 +483,7 @@
 
 					<ul class="nav nav-list">
 							<?php if($can_access_sls){ ?>
-								<li class="<?php echo is_open($nowclass, "customer,sales,produk_jasa,produk_jasa_detail,sls_quotation,sls_contract,sls_po_customer,sls_wo,sls_sertifikat,sls_invoice"); ?> <?php echo is_active($nowclass, "customer,sales,produk_jasa,produk_jasa_detail,sls_quotation,sls_contract,sls_po_customer,sls_wo,sls_sertifikat,sls_invoice"); ?>"><a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-bar-chart"></i>SALES<b class="arrow fa fa-angle-down"></b></a><b class="arrow"></b>
+								<li class="<?php echo is_open($nowclass, "customer,sales,produk_jasa,produk_jasa_detail,sls_quotation,sls_contract,sls_po_customer,sls_wo,sls_sertifikat,sls_invoice,sls_ba"); ?> <?php echo is_active($nowclass, "customer,sales,produk_jasa,produk_jasa_detail,sls_quotation,sls_contract,sls_po_customer,sls_wo,sls_sertifikat,sls_invoice,sls_ba"); ?>"><a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-bar-chart"></i>SALES<b class="arrow fa fa-angle-down"></b></a><b class="arrow"></b>
 									<ul class="submenu">
 										<li class="<?php echo is_open($nowclass, "customer,sales,produk_jasa,produk_jasa_detail"); ?> <?php echo is_active($nowclass, "customer,sales,produk_jasa,produk_jasa_detail"); ?>"><a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-"></i>Master<b class="arrow fa fa-angle-down"></b></a><b class="arrow"></b>
 											<ul class="submenu">
@@ -497,7 +497,7 @@
 								</li>
 
 							
-										<li class="<?php echo is_open($nowclass, "sls_quotation,sls_contract,sls_po_customer,sls_wo,sls_sertifikat,sls_invoice"); ?> <?php echo is_active($nowclass, "sls_quotation,sls_contract,sls_po_customer,sls_wo,sls_sertifikat,sls_invoice"); ?>"><a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-"></i>Transaction<b class="arrow fa fa-angle-down"></b></a><b class="arrow"></b>
+										<li class="<?php echo is_open($nowclass, "sls_quotation,sls_contract,sls_po_customer,sls_wo,sls_sertifikat,sls_invoice,sls_ba"); ?> <?php echo is_active($nowclass, "sls_quotation,sls_contract,sls_po_customer,sls_wo,sls_sertifikat,sls_invoice,sls_ba"); ?>"><a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-"></i>Transaction<b class="arrow fa fa-angle-down"></b></a><b class="arrow"></b>
 											<ul class="submenu">
 											<li class="<?php echo is_active($nowclass, "sls_quotation"); ?>"><a href="<?php echo base_url("sls_quotation"); ?>"><i class="menu-icon"></i>Quotation</a><b class="arrow"></b></li>	
 												<!-- <li class="<?php echo is_active($nowclass, "sls_contract_"); ?>"><a href="<?php echo base_url("sls_contract_"); ?>"><i class="menu-icon"></i>Project Release</a><b class="arrow"></b></li>	 -->

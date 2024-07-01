@@ -86,7 +86,7 @@ $(document).ready(function() {
 												<table id="listdata" class="table table-striped table-bordered table-hover" width="100%">
 									<thead>
 										<tr>
-											<th width="150">No. PO Customer</th>
+											<th width="150">No. Berita Acara</th>
 											<th width="100">Date</th>
 											<th>Branch</th>
 											<th width="160">Customer</th>
