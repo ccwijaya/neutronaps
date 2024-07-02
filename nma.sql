@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.5-10.1.8-MariaDB)
-# Date: 2024-07-01 23:19:55
+# Date: 2024-07-02 21:51:24
 # Generator: MySQL-Front 6.0  (Build 2.20)
 
 
@@ -304,7 +304,7 @@ CREATE TABLE `sls_ba` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 #
 # Data for table "sls_ba"
@@ -327,7 +327,7 @@ CREATE TABLE `sls_ba_detail` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 #
 # Data for table "sls_ba_detail"
@@ -359,7 +359,7 @@ CREATE TABLE `sls_invoice` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 #
 # Data for table "sls_invoice"
@@ -382,7 +382,7 @@ CREATE TABLE `sls_invoice_detail` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 #
 # Data for table "sls_invoice_detail"
@@ -680,13 +680,13 @@ CREATE TABLE `web_log` (
   `ip` varchar(100) DEFAULT '',
   `timing` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 #
 # Data for table "web_log"
 #
 
-INSERT INTO `web_log` VALUES (1,'admin','admin123',1,'','2024-04-30 11:28:39'),(2,'admin','admin123',1,'','2024-04-30 11:32:27'),(3,'admin','admin140313',0,'','2024-05-04 12:17:36'),(4,'admin','admin123',1,'','2024-05-04 12:17:39'),(5,'admin','admin123',1,'','2024-05-22 14:49:36'),(6,'candra','ccw140313',0,'','2024-06-02 15:56:09'),(7,'candra','ccw140313',0,'','2024-06-02 15:56:14'),(8,'candra','ccw140313',0,'','2024-06-03 11:12:29'),(9,'admin','admin12',0,'','2024-06-03 11:39:01'),(10,'admin','admin123',1,'','2024-06-03 11:39:05'),(11,'admin','admin123',1,'','2024-06-11 12:08:52'),(12,'admin','admin123',1,'','2024-06-11 16:25:02'),(13,'admin','admin123',1,'','2024-06-12 09:48:34'),(14,'admin','admin123',1,'','2024-06-12 10:39:55'),(15,'admin','admin123',1,'','2024-06-12 10:46:08'),(16,'admin','admin123',1,'','2024-06-12 16:28:48'),(17,'admin','admin123',1,'','2024-06-12 16:39:52'),(18,'admin','admin123',1,'','2024-06-12 17:18:13'),(19,'admin','admin123',1,'','2024-06-12 17:54:24'),(20,'admin','admin123',1,'','2024-06-13 04:43:54'),(21,'admin','admin123',1,'','2024-06-20 13:37:56'),(22,'admin','admin123',1,'','2024-06-24 11:04:59'),(23,'admin','admin123',1,'','2024-06-26 03:15:43'),(24,'admin','admin123',1,'','2024-06-26 09:33:47'),(25,'admin','admin123',1,'','2024-06-27 04:40:49'),(26,'admin','admin123',1,'','2024-07-01 09:36:54'),(27,'admin','admin123',1,'','2024-07-01 16:42:53');
+INSERT INTO `web_log` VALUES (1,'admin','admin123',1,'','2024-04-30 11:28:39'),(2,'admin','admin123',1,'','2024-04-30 11:32:27'),(3,'admin','admin140313',0,'','2024-05-04 12:17:36'),(4,'admin','admin123',1,'','2024-05-04 12:17:39'),(5,'admin','admin123',1,'','2024-05-22 14:49:36'),(6,'candra','ccw140313',0,'','2024-06-02 15:56:09'),(7,'candra','ccw140313',0,'','2024-06-02 15:56:14'),(8,'candra','ccw140313',0,'','2024-06-03 11:12:29'),(9,'admin','admin12',0,'','2024-06-03 11:39:01'),(10,'admin','admin123',1,'','2024-06-03 11:39:05'),(11,'admin','admin123',1,'','2024-06-11 12:08:52'),(12,'admin','admin123',1,'','2024-06-11 16:25:02'),(13,'admin','admin123',1,'','2024-06-12 09:48:34'),(14,'admin','admin123',1,'','2024-06-12 10:39:55'),(15,'admin','admin123',1,'','2024-06-12 10:46:08'),(16,'admin','admin123',1,'','2024-06-12 16:28:48'),(17,'admin','admin123',1,'','2024-06-12 16:39:52'),(18,'admin','admin123',1,'','2024-06-12 17:18:13'),(19,'admin','admin123',1,'','2024-06-12 17:54:24'),(20,'admin','admin123',1,'','2024-06-13 04:43:54'),(21,'admin','admin123',1,'','2024-06-20 13:37:56'),(22,'admin','admin123',1,'','2024-06-24 11:04:59'),(23,'admin','admin123',1,'','2024-06-26 03:15:43'),(24,'admin','admin123',1,'','2024-06-26 09:33:47'),(25,'admin','admin123',1,'','2024-06-27 04:40:49'),(26,'admin','admin123',1,'','2024-07-01 09:36:54'),(27,'admin','admin123',1,'','2024-07-01 16:42:53'),(28,'admin','admin123',1,'','2024-07-02 15:50:08');
 
 #
 # Structure for table "web_user"
@@ -755,7 +755,7 @@ CREATE TABLE `web_user` (
 # Data for table "web_user"
 #
 
-INSERT INTO `web_user` VALUES (1,'admin',NULL,NULL,2,4,'Logistic Analyst Spv',NULL,0,'Admin','0192023a7bbd73250516f069df18b500','081298868898','admin@gmail.com',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,1,NULL,1,1,3,NULL,NULL,'avatar2.png','ttd.jpeg',NULL,NULL,0,1,'2024-07-01 16:42:53',1,NULL,'2022-12-19 02:14:00',1,'2024-07-01 16:42:53');
+INSERT INTO `web_user` VALUES (1,'admin',NULL,NULL,2,4,'Logistic Analyst Spv',NULL,0,'Admin','0192023a7bbd73250516f069df18b500','081298868898','admin@gmail.com',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,1,NULL,1,1,3,NULL,NULL,'avatar2.png','ttd.jpeg',NULL,NULL,0,1,'2024-07-02 15:50:08',1,NULL,'2022-12-19 02:14:00',1,'2024-07-02 15:50:08');
 
 #
 # Structure for table "web_user_level"
@@ -794,7 +794,7 @@ CREATE TABLE `web_user_menu` (
   PRIMARY KEY (`id`),
   KEY `idx1` (`id_user`),
   KEY `idx2` (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=4619 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4620 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 #
 # Data for table "web_user_menu"
@@ -818,7 +818,7 @@ CREATE TABLE `web_user_menu_list` (
   `update_user` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 #
 # Data for table "web_user_menu_list"
