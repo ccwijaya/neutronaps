@@ -156,7 +156,7 @@ function combo_detail($rs_opsi, $id, $name, $value, $attr){
 					</button> -->
 					<?php if($id!=""){ ?>
 						<a class="btn btn-purple radius-4" target="_blank" href="<?php echo site_url();?><?php echo $class_name;?>/print_out/?id=<?php echo $id;?>">
-							<i class="ace-icon fa fa-print "></i>Print
+							<i class="ace-icon fa fa-print "></i>Print Berita Acara
 						</a>
 					<?php } ?>
 					

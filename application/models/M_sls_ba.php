@@ -73,7 +73,7 @@ class M_sls_ba extends CI_Model {
 	public function get_detail_print($id){
 		$this->db->select ( 'a.*, c.nama_jasa, e.nama_user, e.jabatan, g.nama_customer, h.nama_sales, h.keterangan' );
 		$this->db->from("sls_ba_detail a");
-		$this->db->join('sls_ba b', 'a.id_po_customer = b.id', 'left');
+		$this->db->join('sls_ba b', 'a.id_ba = b.id', 'left');
 		$this->db->join('produk_jasa_detail c', 'a.id_produk_jasa_detail = c.id', 'left');
 		$this->db->join('web_user e', 'e.id = b.create_user', 'left');
 		//$this->db->join('view_kategori_kirim d', 'a.id_kategori_kirim = d.id', 'left');
