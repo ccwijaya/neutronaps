@@ -501,10 +501,10 @@
 											<ul class="submenu">
 											<li class="<?php echo is_active($nowclass, "sls_quotation"); ?>"><a href="<?php echo base_url("sls_quotation"); ?>"><i class="menu-icon"></i>Quotation</a><b class="arrow"></b></li>	
 												<!-- <li class="<?php echo is_active($nowclass, "sls_contract_"); ?>"><a href="<?php echo base_url("sls_contract_"); ?>"><i class="menu-icon"></i>Project Release</a><b class="arrow"></b></li>	 -->
-												<li class="<?php echo is_active($nowclass, "sls_po_customer"); ?>"><a href="<?php echo base_url("sls_po_customer"); ?>"><i class="menu-icon"></i>PO Customer</a><b class="arrow"></b></li>
+												<li class="<?php echo is_active($nowclass, "sls_po_customer"); ?>"><a href="<?php echo base_url("sls_po_customer"); ?>"><i class="menu-icon"></i>Sertifikat</a><b class="arrow"></b></li>
 												<!-- <li class="<?php echo is_active($nowclass, "sls_wo"); ?>"><a href="<?php echo base_url("sls_wo"); ?>"><i class="menu-icon"></i>Work Order</a><b class="arrow"></b></li> -->
 												<li class="<?php echo is_active($nowclass, "sls_ba"); ?>"><a href="<?php echo base_url("sls_ba"); ?>"><i class="menu-icon"></i>Berita Acara</a><b class="arrow"></b></li>
-												<li class="<?php echo is_active($nowclass, "sls_sertifikat"); ?>"><a href="<?php echo base_url("sls_sertifikat"); ?>"><i class="menu-icon"></i>Certification</a><b class="arrow"></b></li>
+												<!-- <li class="<?php echo is_active($nowclass, "sls_sertifikat"); ?>"><a href="<?php echo base_url("sls_sertifikat"); ?>"><i class="menu-icon"></i>Certification</a><b class="arrow"></b></li> -->
 												<li class="<?php echo is_active($nowclass, "sls_invoice"); ?>"><a href="<?php echo base_url("sls_invoice"); ?>"><i class="menu-icon"></i>Invoice</a><b class="arrow"></b></li>
 												
 											</ul>

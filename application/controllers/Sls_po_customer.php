@@ -166,7 +166,7 @@ class Sls_po_customer extends CI_Controller {
 		$data["id"] = $this->input->post('id');
 		if($data["id"]==""){
 			// $data["no_bukti"] = $this->input->post('no_bukti');
-			$data["no_bukti"] = "NMA-WO-" . date('d') . "-" . date('m') . date('y') . "-" . addzero(get_last_counter("NMA-WO" . date('Y-m-d')), 3);
+			$data["no_bukti"] = "NMA-SRT-" . date('d') . "-" . date('m') . date('y') . "-" . addzero(get_last_counter("NMA-SRT" . date('Y-m-d')), 3);
 			// YPH-FP-Q-23-0320-001
 		}
 		$data["id_quotation"] = $this->input->post('id_quotation');

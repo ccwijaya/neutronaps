@@ -140,7 +140,7 @@ function combo_detail($rs_opsi, $id, $name, $value, $attr){
 					</button> -->
 					<?php if($id!=""){ ?>
 						<a class="btn btn-purple radius-4" target="_blank" href="<?php echo site_url();?><?php echo $class_name;?>/print_out/?id=<?php echo $id;?>">
-							<i class="ace-icon fa fa-print "></i>Print
+							<i class="ace-icon fa fa-print "></i>Print Sertifikat
 						</a>
 					<?php } ?>
 					
@@ -216,7 +216,7 @@ function combo_detail($rs_opsi, $id, $name, $value, $attr){
 													
 													echo'<div class="row">';
 													echo'<div class="col-xs-12 col-sm-3">';
-													echo '<label>No. SO</label>';
+													echo '<label>No. Sertifikat</label>';
 													$param["name"] = "no_bukti";
 													//$param["class_column"] = "col-lg-12";
 													$param["readonly"] = "Y";

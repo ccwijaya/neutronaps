@@ -52,7 +52,7 @@
 			}
 
 			div.divContent {
-				padding-top: 300px;
+				padding-top: 290px;
 				padding-left: 30px;
 				padding-right: 35px;
 				height: auto;
@@ -169,14 +169,47 @@
 
 			}
 
+			
+
 			.quotation {
-				color: #228B22;
+				color: black;
+				padding-top: 10px;
 				font-weight: bold;
-				font-size: 25px;
+				font-size: 20px;
 				font-family: arial;
 				// width:100%;
 				text-align: center;
 			}
+
+			.no_bukti {
+				color: black;
+				font-weight: bold;
+				font-size: 15px;
+				font-family: arial;
+				// width:100%;
+				text-align: center;
+			}
+
+			.isi_ba {
+				color: black;
+				padding-top: 30px;
+				padding-left: 30px;
+				padding-right: 50px;
+				font-size: 15px;
+				font-family: arial;
+		
+				text-align: justify;
+			}
+			hr {
+				
+				border: none;
+				height: 4px;
+				color: #333; 
+				background-color: #333;
+				
+			}
+
+			
 		}
 	</style>
 </head>
@@ -185,207 +218,22 @@
 	<div class="divWraper">
 		<div class="divHeader">
 			<img class="header" src="<?php echo base_url(); ?>asset/image/header.jpg">
-			<table width=100%>
-
-
-				<tr>
-					<td width=60% valign="top" style="padding-left:30px;">
-						<br>
-						<table border=0 width=40% class="">
-							<tr>
-								<td class="customer">CUSTOMER</td>
-							</tr>
-						</table>
-						<table border=0 width=70% class="">
-
-							<tr>
-								<td><?php echo ($rs_data[0]["nama_customer"]); ?></td>
-							</tr>
-							<?php
-							$alamat1 = "";
-							$alamat2 = "";
-							$a_alamat = explode(PHP_EOL, $rs_data[0]["alamat"]);
-							if (isset($a_alamat[0])) {
-								$alamat1 = $a_alamat[0];
-							}
-							if (isset($a_alamat[1])) {
-								$alamat2 = $a_alamat[1];
-							}
-
-							?>
-							<tr>
-								<td><?php echo ($alamat1); ?></td>
-							</tr>
-							<tr>
-								<td><?php echo ($alamat2); ?></td>
-							</tr>
-							<tr>
-								<td><?php echo ($rs_data[0]["kota"]) . " " . $rs_data[0]["kode_pos"]; ?></td>
-							</tr>
-							<tr>
-								<td>UP: <?php echo $rs_data[0]["pic"]; ?></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-							</tr>
-						</table>
-
-					</td>
-
-					<td width=50% valign="top" style="padding-right:50px;">
-						<div class="quotation">QUOTATION</div>
-						<table class="data_header">
-							<tr>
-								<td>Date</td>
-								<td>:</td>
-								<td><?php echo format_date($rs_data[0]["tanggal"]); ?></td>
-							</tr>
-							<!-- <tr>
-								<td>Your REF</td>
-								<td>:</td>
-								<td><?php echo $rs_data[0]["no_reff"]; ?></td>
-							</tr> -->
-							<tr>
-								<td>No. Quotation</td>
-								<td>:</td>
-								<td><?php echo $rs_data[0]["no_bukti"]; ?></td>
-							</tr>
-
-							<tr>
-								<td>Sales Name</td>
-								<td>:</td>
-								<td><?php echo $rs_data[0]["nama_sales"]; ?></td>
-							</tr>
-							<tr>
-								<td>Effective Date</td>
-								<td>:</td>
-								<td><?php echo format_date($rs_data[0]["tanggal"]); ?><?php //echo date('d M y'); 
-																						?></td>
-							</tr>
-							<!-- <tr>
-								<td>T.O.P</td>
-								<td>:</td>
-								<td><?php echo $rs_data[0]["lama_bayar"]; ?> Days</td>
-							</tr> -->
-						</table>
-					</td>
-				</tr>
-			</table>
+			<div class="quotation">Certificate Of Fumigation</div>
+			<div class="no_bukti"><?php echo $rs_data[0]["no_bukti"]; ?></div>
+			<div class="isi_ba">This is to certify that the following regulated article(s) has been fumigated according to the appropriate procedures to conform  
+			the current phytosanitary requirements of the importing country :</div>
+			</br>
+			<div class="quotation">ARTICLE DETAILS</div>
 		</div>
-
-
-
 		<div class="divContent">
-		<!-- <p>Dengan Hormat</p>
-		<p>Bersama ini perkenalkan kami dari PT. NEUTRON MITRA ABADI adalah perusahaan yang bergerak pada bidang jasa fumigasi dengan nomor registrasi <b>ID-0057-MB dan ID-0060-PH3</b>. Dengan ini kami penawaran
-						</br> -->
-		<b><?php echo $rs_data[0]["nama_produk"]; ?></b>
-		<p>
-			<?php
-			$counter = 0;
-			$limit = 25;
-			$loop = 0;
-			$total = 0;
-
-			// $data['total_subtotal'] = 0;
-			// $data['total_discount'] = 0;
-			// $data['total_total'] = 0;
-			// $data['total_ppn'] = 0;
-			$data['total_grandtotal'] = 0;
-			?>
-			<table class="table_detail" width=100%>
-				<tr>
-					<th width="30">NO.</th>
-					<th width="250">SERVICE</th>
-					<th width="120">RATE PRICE</th>
-					<!-- <th width="50">PBL Rate</th> -->
-				</tr>
-
-				<?php
-				$total_row = count($rs_detail_print);
-				$sisa = $total_row;
-				while ($sisa >= $limit) {
-					$sisa = $sisa - $limit;
-				}
-				$sisa = $limit - $sisa;
-
-				$data["total_tarif_nego"] = 0;
-				//$data["total_tarif_pbl"] = 0;
-
-				// debug($sisa);
-				foreach ($rs_detail_print as $result) {
-					$counter++;
-					$loop++;
-					if ($loop == ($limit + 1)) {
-				?>
-						<tr>
-							<td class="only_top" colspan="6">&nbsp;</td>
-						</tr>
-			</table>
-			<div class="divNextpage"></div>
-			<table class="table_detail" width=100%>
-				<tr>
-					<th width="30">NO.</th>
-					<th width="250">SERVICE</th>
-					<th width="120">RATE PRICE</th>
-					<!-- <th width="50">PBL Rate</th> -->
-				</tr>
-			<?php
-
-						$loop = 1;
-					}
-			?>
-			<tr>
-				<td class="leftright2" align="center"><?php echo ($counter); ?></td>
-				<td class="leftright2"><?php echo ($result["nama_jasa"]); ?></td>
-				<td class="leftright2" align="center">Rp.<?php echo format_number($result["harga"],0); ?></td>
-			</tr>
-		<?php
-
-					// $data["total_tarif_nego"] += $result["tarif_pbl"];
-					//$data["total_tarif_pbl"] += $result["tarif_approved"];
-
-
-					if ($loop == $limit) {
-						// $this->print_footer($data);
-					}
-				}
-
-				for ($ix = 0; $ix < $sisa; $ix++) {
-					// echo  '<tr>
-					// <td class="leftright2"></td>
-					// <td class="leftright2"></td>
-					// <td class="leftright2"></td>
-					// <td class="leftright2"></td>
-
-
-
-
-					// </tr>';
-				}
-
-		?>
-		<tr>
-		<tr>
-			<td colspan=4 rowspan="1" class="leftright4 only_top font_size2" valign="top">&nbsp;</td>
-			<!-- <td class="allborder leftbtmtop font_size" align="right">Total Rate &nbsp;</td>
-					<td class="allborder leftbtmtop font_size" align="right">Rp.<?php //echo format_number($data['total_tarif_nego'], 0); 
-																				?>&nbsp;</td> -->
-		</tr>
-		</tr>
-			</table>
+		<hr>
+		
 		</div>
 			
 		<div class="divFooter">
 			
 
 			<table border=0 width=100%>
-				<table>
-					<tr>
-						<td class="customer">TERM & CONDITIONS</td>
-					</tr>
-				</table>
-
 				<tr>
 
 
@@ -395,41 +243,32 @@
 
 
 						</table>
-						<table border=0 width=95% class="">
+						<table border=0 width=70% class="">
 							<tr>
-								<td valign="top">1.</td>
-								<td>
-									Harga belum termasuk PPn 11%
-								</td>
+								<td valign="top">DESCRIPTION OF GOODS</td>
+								<td>: <?php echo ($rs_data[0]["dog"]); ?></td>
 							</tr>
 							<tr>
-								<td valign="top">2.</td>
-								<td>
-									SPK diterima 2 (dua) hari sebelum pekerjaan
-								</td>
+								<td valign="top">QUANTITY DECLARED</td>
+								<td>: <?php echo ($rs_data[0]["weight"]); ?></td>
 							</tr>
 							<tr>
+								<td valign="top">CONSIGNMENT LINK</td>
+								<td>: <?php echo ($rs_data[0]["consignment_link"]); ?></td>		
+							</tr>
 
-								<td valign="top">3.</td>
-								<td>
-									Payment 2 (dua) minggu setelah invoice diterima
-								</td>
+							<tr>
+								<td valign="top">VESSEL / VOYAGE</td>
+								<td>: <?php echo ($rs_data[0]["vessel"]); ?></td>		
+							</tr>
+
+							<tr>
+								<td valign="top">CONNECTING VESSEL</td>
+								<td>: <?php echo ($rs_data[0]["vessel"]); ?></td>		
+							</tr>
 						
-								<tr>
-									<td>4.</td><td>Pembayaran transfer ke Bank:</td>
-								</tr>
-								<tr>
-									<td></td><td>a) Nama Bank: MANDIRI</td>
-								</tr>
-								<tr>
-									<td></td><td>b) Cabang: Radio Dalam, Jakarta Selatan</td>
-								</tr>
-								<tr>
-									<td></td><td>c) Nomor Rekening: </td>
-								</tr>
-								<tr>
-									<td></td><td>d) Nama Rekening: PT. NEUTRON MITRA ABADI</td>
-								</tr>
+								
+							
 
 						</table>
 
