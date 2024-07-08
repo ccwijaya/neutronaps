@@ -13,17 +13,10 @@ $akses_harga_jual = "";
 $akses_input_harga = "";
 $foto = "";
 $ttd = "";
-$warehouse ="";
-$trucking ="";
-$vm ="";
-$pa ="";
-$cs_branch ="";
-$inv ="";
-$inv_branch="";
+
 $sls ="";
 $stg ="";
-$acc ="";
-$ops ="";
+
 $verify ="";
 $approval ="";
 $delete_akses ="";
@@ -44,24 +37,14 @@ if($results != ""){
 		$email = $result["email"];
 		$id_cabang = $result["id_cabang"];
 		$id_level = $result["id_level"];
-		$akses_harga_jual = $result["akses_harga_jual"];
-		$akses_input_harga = $result["akses_input_harga"];
 		$foto = $result["foto"];
 		$ttd = $result["ttd"];
-		$warehouse = $result["warehouse"];
-		$trucking = $result["trucking"];
-		$vm = $result["vm"];
-		$pa = $result["pa"];
-		$cs_branch = $result["cs_branch"];
 		$sls = $result["sls"];
 		$stg = $result["stg"];
-		$acc = $result["acc"];
-		$ops = $result["ops"];
 		$verify = $result["verify"];
 		$approval = $result["approval"];
 		$delete_akses = $result["delete_akses"];
 		$is_cat_customer = $result["is_cat_customer"];
-		$po_account = $result["po_account"];
 		$dash_home = $result["dash_home"];
 		
 	}

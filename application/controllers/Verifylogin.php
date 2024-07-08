@@ -38,29 +38,17 @@ class Verifylogin extends CI_Controller {
 					'jabatan' => $row->jabatan,
 					'level_izin' => $row->level_izin,
 					'id_pengajuan' => $row->id_pengajuan,
-					'warehouse' => $row->warehouse,
-					'trucking' => $row->trucking,
-					'vm' => $row->vm,
-					'pa' => $row->pa,
-					'cs_branch' => $row->cs_branch,
-					'inv_branch' => $row->inv_branch,
-					'inv' => $row->inv,
+					
 					'sls' => $row->sls,
-					'eng' => $row->eng,
-					'hrd' => $row->hrd,
-					'driver' => $row->driver,
-					'gm' => $row->gm,
+					
 					'main_menu' => $row->main_menu,
-					'po_account' => $row->po_account,
-					'ywp' => $row->ywp,
-					'app_cuti' => $row->app_cuti,
+					
 					'stg' => $row->stg,
-					'ops' => $row->ops,
+					
 					'verify' => $row->verify,
-					'acc' => $row->acc,
+		
 					'approval' => $row->approval,
-					'akses_harga_jual' => $row->akses_harga_jual,
-					'akses_input_harga' => $row->akses_input_harga,
+
 					'edit_akses' => $row->edit_akses,
 					'delete_akses' => $row->delete_akses,
 					'keterangan' => $row->keterangan,

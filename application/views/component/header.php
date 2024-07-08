@@ -1,12 +1,7 @@
 <?php
 
-	$can_access_warehouse = false;
-	$can_access_trucking = false;
-	$can_access_vm = false;
-	$can_access_pa = false;
-	$can_access_acc = false;
+	
 	$can_access_sls = false;
-	$can_access_ops = false;
 	$can_access_verify = false;
 	
 	$can_access_stg = false;
@@ -14,7 +9,6 @@
 	$can_access_level = false;
 	$can_access_level_jabatan = false;
 	$can_access_pengajuan = false;
-	$can_access_po_account = false;
 	$dash_home = false;
 
 	$session_data = $this->session->userdata('logged_in');
@@ -28,38 +22,16 @@
 	$global_pengajuan2 = $session_data['id_pengajuan'];
 	$nowclass = $this->uri->segment('1');
 
-	if($session_data['warehouse']=="1"){
-		$can_access_warehouse = true;
-	}
-	if($session_data['trucking']=="1"){
-		$can_access_trucking = true;
-	}
-	if($session_data['vm']=="1"){
-		$can_access_vm = true;
-	}
-
-	if($session_data['pa']=="1"){
-		$can_access_pa = true;
-	}
-
-	if($session_data['acc']=="1"){
-		$can_access_acc = true;
-	}
+	
 
 	if($session_data['sls']=="1"){
 		$can_access_sls = true;
 	}
 
-	if($session_data['ops']=="1"){
-		$can_access_ops = true;
-	}
+	
 
 	if($session_data['verify']=="1"){
 		$can_access_verify = true;
-	}
-
-	if($session_data['po_account']=="1"){
-		$can_access_po_account = true;
 	}
 	
 	if($session_data['stg']=="1"){
